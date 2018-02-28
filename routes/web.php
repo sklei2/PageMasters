@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Individual Book Page Route
+Route::get('book/{id}', 'BookController@show');
