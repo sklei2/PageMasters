@@ -1,15 +1,15 @@
 <?php 
 
-namespace app\Repositories\AdminRepository
+namespace App\Repositories\AdminRepository
 
 use App\Models\Admin as Admin;
 
-class AdminRepositoryInterface {
+interface AdminRepositoryInterface {
 	public function getAll();
 	public function get($id);
 	public function delete($id);
 	public function createWithModel(Admin $admin);
 	public function createWithData(array $data);
 	public function updateWithModel($id, Admin $admin);
-	public function updateWIthData($id, array $data);
+	public function updateWithData($id, array $data);
 }

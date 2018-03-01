@@ -2,7 +2,7 @@
 
 namespace App\Repositories\AdminRepository
 
-use App\Repositories\AdminRepository\AdminRepositoryInterface
+use App\Repositories\AdminRepository\AdminRepositoryInterface;
 use App\Models\Admin as Admin;
 
 class AdminMockRepository implements AdminRepositoryInterface {
@@ -22,7 +22,7 @@ class AdminMockRepository implements AdminRepositoryInterface {
 
 	public function get($id){
 		$object = null;
-		foreach ($fakeData as $key => $value) {
+		foreach ($this->fakeData as $key => $value) {
 			if (value['id'] == $id) {
 				$object = value;
 				break;
@@ -32,7 +32,7 @@ class AdminMockRepository implements AdminRepositoryInterface {
 	}
 
 	public function delete($id){
-		foreach ($fakeData as $key => $value) {
+		foreach ($this->fakeData as $key => $value) {
 			if ($value['id'] == $id) {
 				unset($fakeData[$key]);
 				return true;
@@ -43,7 +43,7 @@ class AdminMockRepository implements AdminRepositoryInterface {
 
 	public function createWithModel(Admin $admin){
 		if (get($admin->id) == null) {
-			array_push($fake, $admin);	
+			array_push($this->fakeData, $admin);	
 			return true;
 		}
 		return false;
@@ -55,11 +55,19 @@ class AdminMockRepository implements AdminRepositoryInterface {
 	}
 
 	public function updateWithModel($id, Admin $admin){
-
+		foreach ($this->fakeData as $key => $value) {
+			if ($value['id'] == $id) {
+				$this->fakeData[$key] = $admin;
+				return;
+			}
+		}
+		// if the model doesn't exist, we'll just add it.
+		array_push($this->fakeData, $admin);
 	}
 
-	public function updateWIthData($id, array $data){
-
+	public function updateWithData($id, array $data){
+		$admin = new Admin($data['id'], $data['name']);
+		return updateWithModel($admin);
 	}
 
 }

@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Admin Routes
+Route::post('admins/{admin}', 'AdminApiController@create');
+Route::get('admins', 'AdminApiController@getAll');
+Route::get('admins/{id}', 'AdminApiController@get');
+Route::put('admins/{admin}', 'AdminApiController@update');
+Route::delete('admins/{id}', 'AdminApiController@delete');
