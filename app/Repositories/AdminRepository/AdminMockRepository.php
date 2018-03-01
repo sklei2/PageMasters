@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\AdminRepository
+namespace App\Repositories\AdminRepository;
 
 use App\Repositories\AdminRepository\AdminRepositoryInterface;
 use App\Models\Admin as Admin;
@@ -20,20 +20,20 @@ class AdminMockRepository implements AdminRepositoryInterface {
 		return json_encode($this->fakeData);
 	}
 
-	public function get($id){
+	public function get($id) {
 		$object = null;
 		foreach ($this->fakeData as $key => $value) {
-			if (value['id'] == $id) {
-				$object = value;
+			if ($value->id == $id) {
+				$object = $value;
 				break;
 			}
 		}
 		return json_encode($object);
 	}
 
-	public function delete($id){
+	public function delete($id) {
 		foreach ($this->fakeData as $key => $value) {
-			if ($value['id'] == $id) {
+			if ($value->id == $id) {
 				unset($fakeData[$key]);
 				return true;
 			}
@@ -41,7 +41,7 @@ class AdminMockRepository implements AdminRepositoryInterface {
 		return false;
 	}
 
-	public function createWithModel(Admin $admin){
+	public function createWithModel(Admin $admin) {
 		if (get($admin->id) == null) {
 			array_push($this->fakeData, $admin);	
 			return true;
@@ -49,14 +49,14 @@ class AdminMockRepository implements AdminRepositoryInterface {
 		return false;
 	}
 
-	public function createWithData(array $data){		
+	public function createWithData(array $data) {		
 		$admin = new Admin($data['id'], $data['name']);
 		return createWithModel($admin);		
 	}
 
-	public function updateWithModel($id, Admin $admin){
+	public function updateWithModel($id, Admin $admin) {
 		foreach ($this->fakeData as $key => $value) {
-			if ($value['id'] == $id) {
+			if ($value->id == $id) {
 				$this->fakeData[$key] = $admin;
 				return;
 			}
@@ -65,9 +65,8 @@ class AdminMockRepository implements AdminRepositoryInterface {
 		array_push($this->fakeData, $admin);
 	}
 
-	public function updateWithData($id, array $data){
+	public function updateWithData($id, array $data) {
 		$admin = new Admin($data['id'], $data['name']);
 		return updateWithModel($admin);
 	}
-
 }

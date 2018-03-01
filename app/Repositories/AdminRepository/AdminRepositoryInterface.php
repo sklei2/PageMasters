@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Repositories\AdminRepository
+namespace App\Repositories\AdminRepository;
 
 use App\Models\Admin as Admin;
 
