@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories
+namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
