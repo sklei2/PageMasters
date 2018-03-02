@@ -8,8 +8,6 @@ use App\Models\Admin as Admin;
 
 class AdminRepository extends BaseRepository implements AdminRepositoryInterface {
 
-	private $fakeData;
-
 	public function __construct(Admin $admin) {
 		$this->model = $admin;
 	}
