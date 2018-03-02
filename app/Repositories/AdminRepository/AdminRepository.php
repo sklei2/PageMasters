@@ -31,9 +31,11 @@ class AdminRepository extends BaseRepository implements AdminRepositoryInterface
 	}
 
 	public function update($id, array $attributes) {
-		$user = $this->model->firstOrCreate($attributes);
-		$user->fill($attributes);
-		$user->save();
-		return true;
+		$user = $this->get($id);
+		if ($user != null) {
+			return $user->update($attributes);			
+		} else {
+			return $this->create($attributes);
+		}		
 	}
 }
