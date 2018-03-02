@@ -15,7 +15,7 @@ class BookTableSeeder extends Seeder
         DB::table('books')->delete();
 
         Book::create([
-        	'title' => 'The FellowShip of the Ring',
+        	'title' => 'The Fellowship of the Ring',
          	'author' => 'J.R.R. Tolkien',
          	'isbn' => '0547928211', 
          	'rating' => 4.50, 
