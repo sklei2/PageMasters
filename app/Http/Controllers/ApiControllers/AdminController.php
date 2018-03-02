@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\ApiControllers;
 
-use App\Repository\AdminRepository\AdminRepositoryInterface;
+use App\Repositories\AdminRepository\AdminRepositoryInterface;
 use App\Models\Admin as Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,8 +16,9 @@ class AdminController extends Controller
 	}
 
     public function create(Request $request) {
-        $admin = new Admin($request->input('id'), $request->input('name'));        
-    	return $this->admin->createWithModel($admin);
+    	$admin = $this->admin->create($request->all());
+        $code = $admin != null ? 200 : 400;
+        return response($admin, $code);
     }
 
     public function getAll() {
@@ -25,16 +26,21 @@ class AdminController extends Controller
     }
 
     public function get($id) {
-    	return $this->admin->get($id);
+        $admin = $this->admin->get($id);
+        $code = $admin != null ? 200 : 404;
+    	return response($admin, $code);
     }
 
-	public function update(Request $request, $id) {    
-        $admin = new Admin($request->input('id'), $request->input('name'));
-    	return $this->admin->updateWithModel($id, $admin);
+	public function update(Request $request, $id) {            
+    	$success = $this->admin->update($id, $request->all());
+        $code = $success ? 200 : 400;
+        return response($code);
     }
 
     public function delete($id) {
-    	return $this->admin->delete($id);
+    	$success = $this->admin->delete($id);
+        $code = $success ? 200 : 404;
+        return response($code);
     }
     
 }
