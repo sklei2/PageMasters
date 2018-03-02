@@ -27,5 +27,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\AdminRepository\AdminRepositoryInterface', 
             'App\Repositories\AdminRepository\AdminRepository'
         );
+        $this->app->bind(
+            'App\Repositories\BookRepository\BookRepositoryInterface',
+            'App\Repositories\BookRepository\BookRepository'
+        );
     }
 }
