@@ -1,13 +1,10 @@
-<?php 
+<?php
 
-namespace App\Models;
+namespace App;
 
-class Admin {
-	public $id;
-	public $name;
+use Illuminate\Database\Eloquent\Model;
 
-	public function __construct($id, $name) {
-		$this->id = $id;
-		$this->name = $name;
-	}
+class Admin extends Model
+{
+    
 }

@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Admin Routes
-Route::post('admins/{admin}', 'AdminApiController@create');
-Route::get('admins', 'AdminApiController@getAll');
-Route::get('admins/{id}', 'AdminApiController@get');
-Route::put('admins/{admin}', 'AdminApiController@update');
-Route::delete('admins/{id}', 'AdminApiController@delete');
+Route::post('admins/create/', 'ApiControllers\AdminController@create');
+Route::get('admins', 'ApiControllers\AdminController@getAll');
+Route::get('admins/{id}', 'ApiControllers\AdminController@get');
+Route::put('admins/update/{id}', 'ApiControllers\AdminController@update');
+Route::delete('admins/delete/{id}', 'ApiControllers\AdminController@delete');

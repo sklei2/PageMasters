@@ -2,14 +2,13 @@
 
 namespace App\Repositories\AdminRepository;
 
+use App\Repositories\BaseRepository;
 use App\Models\Admin as Admin;
 
-interface AdminRepositoryInterface {
+interface AdminRepositoryInterface extends BaseRepository {
 	public function getAll();
 	public function get($id);
 	public function delete($id);
-	public function createWithModel(Admin $admin);
-	public function createWithData(array $data);
-	public function updateWithModel($id, Admin $admin);
-	public function updateWithData($id, array $data);
+	public function create(array $data);
+	public function update($id, array $data);
 }
