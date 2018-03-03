@@ -24,9 +24,7 @@ Route::get('/preferences', function() {
     return view('preferences');
 });
 
-Route::get('/books', function () {
-    return view('books');
-});
+Route::get('/books', 'BookController@getAll');
 
 Route::get('/cart', function () {
     return view('cart');
