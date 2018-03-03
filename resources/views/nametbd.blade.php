@@ -47,7 +47,7 @@
                         @include('tabs.manageCourses')
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="enrolledCourses">
-
+                        @include('tabs.enrolledCourses')
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="accountBalance">
 
