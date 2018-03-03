@@ -10,6 +10,8 @@ class Book extends Model
     	'title',
     	'author',
     	'price',
-    	'isbn'
+    	'isbn',
+    	'isEnabled',
+    	'bookImgSrc'
     ];
 }
