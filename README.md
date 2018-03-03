@@ -10,6 +10,7 @@ You also need:
  - Mbstring PHP Extension
  - Tokenizer PHP Extension
  - XML PHP Extension
+ - MySQL Server
 You have to install the packages via apt-get or something similar.
 
 Run composer install. you should now have all the base packages
