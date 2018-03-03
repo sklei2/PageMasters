@@ -27,8 +27,6 @@ class CreateCourseBookTable extends Migration
      */
     public function down()
     {
-        Schema::table('course_book', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('course_book');
     }
 }
