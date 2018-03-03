@@ -62,6 +62,10 @@ To initialize the database with some initial values enter the following:
 -`php artisan migrate:fresh`
 -`php artisan db:seed`
 
+If  `php artisan db:seed` gives the error `Class ????TableSeeder does not exist` run the following:
+-`composer dump-autoload` 
+Then run the initialize commands again.
+
 ## Run local
 
 To run locally use `php -S localhost:8000 -t public/` or `php artisan serve`.
