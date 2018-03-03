@@ -1,23 +1,23 @@
 @php
-    class course {
+    class managedCourse {
         function __construct($name, $code, $textbook) {
             $this->name = $name;
             $this->code = $code;
             $this->textbook = $textbook;
         }
     }
-    $courses = array(
-        new course(
+    $managedCourses = array(
+        new managedCourse(
             'Engineering Secure Software',
             '1234',
             'Some textbook'
         ),
-        new course(
+        new managedCourse(
             'Personal Software Engineering',
             '1234',
             'Some textbook'
         ),
-        new course(
+        new managedCourse(
             'Beers of the World',
             '1234',
             'Some textbook'
@@ -27,7 +27,7 @@
 <div id="courses">
 
     <button id="addCourse" type="button" class="btn btn-secondary row">Add Course</button>
-    @foreach ($courses as $course)
+    @foreach ($managedCourses as $course)
         <div class="course">
             <p>{{$course->name}}:</p>
             <p>{{$course->code}}:</p>
