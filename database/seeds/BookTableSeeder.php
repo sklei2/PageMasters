@@ -36,9 +36,10 @@ class BookTableSeeder extends Seeder
         	'title' => 'Design Patterns: Elements of Reusable Object-Oriented Software',
          	'author' => 'Erich Gamma, Richard Helm, Ralph Johnson',
          	'isbn' => '0201633612', 
-         	'price' => 27.85
+         	'price' => 27.85,
             'isEnabled' => true,
             'bookImgSrc' => 'https://images-na.ssl-images-amazon.com/images/I/51szD9HC9pL._SX395_BO1,204,203,200_.jpg'
+        ]);
 
         Book::create([
         	'title' => "If You Ask Me: (And of Course You Won't)",
