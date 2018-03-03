@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-require('./nametbd');
+require('./preferences');
 
 window.Vue = require('vue');
 
