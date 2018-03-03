@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./nametbd');
 
 window.Vue = require('vue');
 
