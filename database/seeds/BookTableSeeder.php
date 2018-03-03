@@ -18,7 +18,6 @@ class BookTableSeeder extends Seeder
         	'title' => 'The Fellowship of the Ring',
          	'author' => 'J.R.R. Tolkien',
          	'isbn' => '0547928211', 
-         	'rating' => 4.50, 
          	'price' => 17.31
          ]);
 
@@ -26,7 +25,6 @@ class BookTableSeeder extends Seeder
         	'title' => 'The Martian',
          	'author' => 'Andy Weir',
          	'isbn' => '0553418025', 
-         	'rating' => 4.70, 
          	'price' => 10.97
          ]);
 
@@ -34,7 +32,6 @@ class BookTableSeeder extends Seeder
         	'title' => 'Design Patterns: Elements of Reusable Object-Oriented Software',
          	'author' => 'Erich Gamma, Richard Helm, Ralph Johnson',
          	'isbn' => '0201633612', 
-         	'rating' => 4.50, 
          	'price' => 27.85
          ]);
 
@@ -42,7 +39,6 @@ class BookTableSeeder extends Seeder
         	'title' => "If You Ask Me: (And of Course You Won't)",
          	'author' => 'Betty White',
          	'isbn' => '0425245284', 
-         	'rating' => 4.20, 
          	'price' => 7.68
          ]);
     }
