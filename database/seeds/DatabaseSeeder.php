@@ -12,10 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('AdminTableSeeder');
-        // Make sure to seed Books before Courses and Courses before
-        // Students so that we can populate some test links between
-        // Sudents to Courses and books and Courses to books
+        // Make sure the Book Seeder is done before almost all
+        // other seeds, since it is relied upon
         $this->call('BookTableSeeder');
+        // Make sure we do Course Seeding before Students and
+        // Instructors since they both have courses
         $this->call('CourseTableSeeder');
+        
+        $this->call('InstructorTableSeeder');
     }
 }
