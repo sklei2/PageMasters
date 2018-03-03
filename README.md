@@ -32,7 +32,7 @@ Save the `.env` file. **Do *not* commit this**. The `.env` file is for your own 
 ### Initialize Setup Database
 To initialize the database with some initial values enter the following:
 
-`php artisan migrate`
+`php artisan migrate:fresh`
 
 `php artisan db:seed`
 
