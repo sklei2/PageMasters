@@ -7,3 +7,27 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#bookPage {
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  flex-flow: column;
+  flex: 1;
+  display: flex;
+}

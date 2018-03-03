@@ -1,2 +1,8 @@
+# Directories
 vendor/*
 node_modules/*
+.idea/*
+resources/views/vendor/*
+
+# Files
+.env

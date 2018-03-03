@@ -15,6 +15,29 @@ You have to install the packages via apt-get or something similar.
 
 Run composer install. you should now have all the base packages
 
+#### General
+
+Clone the repository and install the following dependencies:
+  - PHP 7
+  - OpenSSL PHP Extension
+  - PDO PHP Extenstion
+  - Mbstring PHP Extension
+  - Tokenizer PHP Extension
+  - XML PHP Extension
+
+Run `composer install`. You should now have all the base packages.
+
+#### Ubuntu
+
+In addition to the above, run `apt install phpunit` *before* running `composer install`. If you see a warning along the lines of <em>cannot create cache directory... or directory is not writable</em>, you will need to run the following commands:
+  - `sudo chown -R your_user_name /home/your_user_name/.composer/cache/repo/https---packagist.org`
+  - `sudo chown -R your_user_name /home/your_user_name/.composer/cache/files/`
+
+Then run:
+  - `wget https://raw.githubusercontent.com/laravel/laravel/master/.env.example`
+  - `mv .env.example .env`
+  - `php artisan key:generate`
+
 ## Database Setup
 ### Create Database From Scratch
 First you need to create the database in MySQL and setup the environment:
@@ -31,13 +54,10 @@ Save the `.env` file. **Do *not* commit this**. The `.env` file is for your own 
 
 ### Initialize Setup Database
 To initialize the database with some initial values enter the following:
-
-`php artisan migrate:fresh`
-
-`php artisan db:seed`
+-`php artisan migrate:fresh`
+-`php artisan db:seed`
 
 ## Run local
 
-To run locally use:
-php -S localhost:8000 -t public/
+To run locally use `php -S localhost:8000 -t public/` or `php artisan serve`.
 
