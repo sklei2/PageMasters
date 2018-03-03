@@ -122,3 +122,39 @@ Route::delete(
 	'instructors/delete/{id}',
 	'ApiControllers\InstructorController@delete'
 );
+
+// Student Routes
+Route::post(
+	'students/create/',
+	'ApiControllers\StudentController@create'
+);
+
+Route::get(
+	'students',
+	'ApiControllers\StudentController@getAll'
+);
+
+Route::get(
+	'students/{id}',
+	'ApiControllers\StudentController@get'
+);
+
+Route::get(
+	'students/{id}/courses',
+	'ApiControllers\StudentController@getCourses'
+);
+
+Route::get(
+	'students/{id}/books',
+	'ApiControllers\StudentController@getBooks'
+);
+
+Route::put(
+	'students/update/{id}',
+	'ApiControllers\StudentController@update'
+);
+
+Route::delete(
+	'instructors/delete/{id}',
+	'ApiControllers\StudentController@delete'
+);
