@@ -21,7 +21,7 @@ class CourseTableSeeder extends Seeder
     	]);
 
     	// Add couple book ids to the relational table
-    	$course->books()->save(
+    	$course->books()->attach(
     		Book::where('isbn', '=','0425245284')->first()
     	);
 
