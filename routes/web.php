@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+Auth::routes();
+
+Route::get('/books', function () {
+    return view('books');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
