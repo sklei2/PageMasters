@@ -13,6 +13,6 @@ class Student extends Model
     }
 
     public function courses() {
-    	return $this->belongsToMany('App\Models\Course', 'student_course', 'student_id', 'book_id');
+    	return $this->belongsToMany('App\Models\Course', 'student_course', 'student_id', 'course_id');
     }
 }
