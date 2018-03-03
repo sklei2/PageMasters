@@ -17,51 +17,31 @@
 <body>
 @php
     class book {
-        function __construct($cover, $title, $author, $rating, $price) {
+        function __construct($cover, $title, $author, $quantity, $price) {
             $this->cover = $cover;
             $this->title = $title;
             $this->author = $author;
-            $this->rating = $rating;
+            $this->quantity = $quantity;
             $this->price = $price;
         }
     }
     $books = array(
       new book(
-        'https://prodimage.images-bn.com/pimages/9781524763138_p0_v2_s600x595.jpg',
-        'Becoming',
-        'Michelle Obama',
-        '5 Stars',
-        '$22.75'
+        'https://prodimage.images-bn.com/pimages/9780316338868_p0_v1_s600x595.jpg',
+        'Food: What the Heck Should I Eat',
+        'Mark Hyman, MD',
+        3,
+        18.89
       ),
       new book(
-      'https://prodimage.images-bn.com/pimages/9781982101534_p0_v1_s600x595.jpg',
-      'The Forgotten Road',
-      'Richard Paul Evans',
-      '4 Stars',
-      '$14.65'
-      ),
-      new book(
-      'https://prodimage.images-bn.com/pimages/9781524714680_p0_v2_s600x595.jpg',
-      'One of Us Is Lying',
-      'Karen M. McManus',
-      '1 Star',
-      '$13.3'
-      ),
-      new book(
-        'https://prodimage.images-bn.com/pimages/9780316513227_p0_v1_s600x595.jpg',
-        'Fifty Fifty',
-        'James Patterson',
-        '5 Stars',
-        '$16.79'
-      ),
-      new book(
-        'https://prodimage.images-bn.com/pimages/9780399590504_p0_v3_s600x595.jpg',
-        'Educated',
-        'Tara Westover',
-        '3 Stars',
-        '$16.80'
+      'https://prodimage.images-bn.com/pimages/9780312577230_p0_v4_s600x595.jpg',
+      'The Great Alone',
+      'Kristin Hannah',
+      1,
+      17.39
       )
     );
+    $totalCost = 0;
 @endphp
 <div id="bookPage">
     @include('shared.navbar')
@@ -72,29 +52,37 @@
                 <th scope="col">Cover</th>
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
-                <th scope="col">Rating</th>
                 <th scope="col">Price(USD)</th>
-                <th scope="col">Add to Cart</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Remove From Cart</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($books as $book)
+            @foreach ($books as $book)
                 <tr>
                     <td><img style="max-height: 150px" src="{{$book->cover}}"/></td>
                     <td>{{$book->title}}</td>
                     <td>{{$book->author}}</td>
-                    <td>{{$book->rating}}</td>
-                    <td>{{$book->price}}</td>
-                    <td>
+                    <td>${{$book->price}}</td>
+                    <td>{{$book->quantity}}</td>
+                    <td style="text-align: center">
                         <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            <span class="glyphicon glyphicon-trash"></span>
                         </button>
                     </td>
                 </tr>
-                @endforeach
+                @php
+                $totalCost += $book->quantity * $book->price;
+                @endphp
+            @endforeach
             </tbody>
         </table>
+        <div>
+            <div style="float:left">Total: ${{$totalCost}}</div>
+            <button type="button" class="btn btn-default" style="float:right">Purchase</button>
+        </div>
     </div>
 </div>
 </body>
 </html>
+
