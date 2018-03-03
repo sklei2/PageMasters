@@ -8,17 +8,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class=" col-xs-offset-1 col-xs-4">
-                <img src={{ $cover }} />
+                <img src={{ $bookImgSrc }} />
             </div>
             <div class="col-xs-7">
                 <label>Title:</label>
                 <span>{{ $title }}</span><br>
                 <label>Author:</label>
                 <span>{{ $author }}</span><br>
-                <label>Book Rating:</label>
-                <span>{{ $rating }}</span><br>
+                <label>ISBN:</label>
+                <span>{{ $isbn }}</span><br>
+                {{--  <label>Book Rating:</label>
+                <span>{{ $rating }}</span><br>  --}}
                 <label>Price:</label>
                 <span>{{ $price }}</span><br>
+                <button type="button" class="btn btn-primary">Add To Cart</button>
             </div>
         </div>
         <div class="row">
@@ -28,9 +31,9 @@
                     @foreach ($reviews as $review)
                     <li class="media list-group-item">
                         <div class="media-body">
-                            <h4>{{$review['user']}}</h4>
-                            <p>{{$review['stars']}} stars</p>
-                            <p><i>"{{$review['text']}}"</i></p>
+                            {{--  <h4>{{$review['user']}}</h4>  --}}
+                            <h4>{{$review['rating']}} stars</h4>
+                            <p><i>"{{$review['textReview']}}"</i></p>
                         </div>
                     </li>
                     @endforeach
