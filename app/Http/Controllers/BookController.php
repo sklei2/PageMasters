@@ -7,12 +7,13 @@ use App\Book;
 
 // Temporary
 class t_book {
-    function __construct($cover, $title, $author, $rating, $price) {
+    function __construct($cover, $title, $author, $rating, $price, $reviews) {
         $this->cover = $cover;
         $this->title = $title;
         $this->author = $author;
         $this->rating = $rating;
         $this->price = $price;
+        $this->reviews = $reviews;
     }
 }
 
@@ -47,35 +48,95 @@ class BookController extends Controller
             'Becoming',
             'Michelle Obama',
             '5 Stars',
-            '$22.75'
+            '$22.75',
+            array(
+                array(
+                    'user' =>'John Cena', 
+                    'stars' => 5, 
+                    'text' =>'This book changed my life'
+                ),
+                array(
+                    'user' => 'John Doe',
+                    'stars' => 5,
+                    'text' => 'This Book changed John Cena\'s life.'
+                )
+            )
           ),
           new t_book(
           'https://prodimage.images-bn.com/pimages/9781982101534_p0_v1_s600x595.jpg',
           'The Forgotten Road',
           'Richard Paul Evans',
           '4 Stars',
-          '$14.65'
+          '$14.65',
+          array(
+              array(
+                  'user' =>'John Cena', 
+                  'stars' => 5, 
+                  'text' =>'This book changed my life'
+              ),
+              array(
+                  'user' => 'John Doe',
+                  'stars' => 5,
+                  'text' => 'This Book changed John Cena\'s life.'
+              )
+          )
           ),
           new t_book(
           'https://prodimage.images-bn.com/pimages/9781524714680_p0_v2_s600x595.jpg',
           'One of Us Is Lying',
           'Karen M. McManus',
           '1 Star',
-          '$13.3'
+          '$13.3',
+          array(
+              array(
+                  'user' =>'John Cena', 
+                  'stars' => 5, 
+                  'text' =>'This book changed my life'
+              ),
+              array(
+                  'user' => 'John Doe',
+                  'stars' => 5,
+                  'text' => 'This Book changed John Cena\'s life.'
+              )
+          )
           ),
           new t_book(
             'https://prodimage.images-bn.com/pimages/9780316513227_p0_v1_s600x595.jpg',
             'Fifty Fifty',
             'James Patterson',
             '5 Stars',
-            '$16.79'
+            '$16.79',
+            array(
+                array(
+                    'user' =>'John Cena', 
+                    'stars' => 5, 
+                    'text' =>'This book changed my life'
+                ),
+                array(
+                    'user' => 'John Doe',
+                    'stars' => 5,
+                    'text' => 'This Book changed John Cena\'s life.'
+                )
+            )
           ),
           new t_book(
             'https://prodimage.images-bn.com/pimages/9780399590504_p0_v3_s600x595.jpg',
             'Educated',
             'Tara Westover',
             '3 Stars',
-            '$16.80'
+            '$16.80',
+            array(
+                array(
+                    'user' =>'John Cena', 
+                    'stars' => 5, 
+                    'text' =>'This book changed my life'
+                ),
+                array(
+                    'user' => 'John Doe',
+                    'stars' => 5,
+                    'text' => 'This Book changed John Cena\'s life.'
+                )
+            )
           )
         );
 
