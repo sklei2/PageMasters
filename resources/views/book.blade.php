@@ -1,26 +1,21 @@
-@extends('layouts.base')
+@extends('shared.base')
 
-@section('title', 'Page Title')
+@section('title', '{{ $title }}')
 
-@section('sidebar')
-    @parent
-
-    <p>This is appended to the master sidebar.</p>
-@endsection
+@section('mainDiv', 'individualBookPage')
 
 @section('content')
     <div>
-        <img src={{ URL::asset($img) }} />
+        <img src={{ $cover }} />
     </div>
     <div>
         <label>Title:</label>
         <span>{{ $title }}</span><br>
         <label>Author:</label>
         <span>{{ $author }}</span><br>
-        <label>Book Code:</label>
-        <span>{{ $code }}</span><br>
+        <label>Book Rating:</label>
+        <span>{{ $rating }}</span><br>
         <label>Price:</label>
         <span>{{ $price }}</span><br>
-
     </div>
 @endsection
