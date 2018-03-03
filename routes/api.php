@@ -158,3 +158,39 @@ Route::delete(
 	'instructors/delete/{id}',
 	'ApiControllers\StudentController@delete'
 );
+
+// Review Routes
+Route::post(
+	'reviews/create/',
+	'ApiControllers\ReviewController@create'
+);
+
+Route::get(
+	'reviews',
+	'ApiControllers\ReviewController@getAll'
+);
+
+Route::get(
+	'reviews/{id}',
+	'ApiControllers\ReviewController@get'
+);
+
+Route::get(
+	'reviews/book/{id}',
+	'ApiControllers\ReviewController@getByBookId'
+);
+
+Route::get(
+	'reviews/student/{id}',
+	'ApiControllers\ReviewController@getByStudentId'
+);
+
+Route::put(
+	'reviews/update/{id}',
+	'ApiControllers\ReviewController@update'
+);
+
+Route::delete(
+	'reviews/delete/{id}',
+	'ApiControllers\ReviewController@delete'
+);
