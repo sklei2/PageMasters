@@ -39,6 +39,10 @@ class StudentTableSeeder extends Seeder
     		Book::where('isbn', '=','0201633612')->first()
     	);
 
+        $student->books()->attach(
+            Book::where('isbn', '=', '0425245284')->first()
+        );
+
     	$student = Student::create([
     		'fName' => 'Clark',
     		'lName' => 'Kent'
