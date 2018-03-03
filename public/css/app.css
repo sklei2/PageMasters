@@ -8350,6 +8350,58 @@ button.close {
   }
 }
 
+.content {
+  margin-top: 2%;
+}
+
+#tabs {
+  width: 50%;
+}
+
+.nav-tabs > li {
+  float: none;
+  display: inline-block;
+}
+
+.nav-tabs {
+  text-align: center;
+}
+
+#addCourse {
+  float: right;
+  margin: 5px;
+}
+
+#courses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#editCourse {
+  float: right;
+}
+
+.course {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.courseInfo {
+  float: right;
+}
+
+.courseLabel {
+  float: left;
+}
+
 .flex-center {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -8369,6 +8421,10 @@ html {
 
 body {
   height: 100%;
+}
+
+#userInfo {
+  margin: auto;
 }
 
 #bookPage {
