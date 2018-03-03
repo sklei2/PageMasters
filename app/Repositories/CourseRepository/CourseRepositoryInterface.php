@@ -2,8 +2,6 @@
 
 namespace App\Repositories\CourseRepository;
 
-use App\Models\Course as Course;
-
 interface CourseRepositoryInterface {
 	public function getAll();
 	public function get($id);

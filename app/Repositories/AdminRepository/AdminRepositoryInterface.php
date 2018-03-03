@@ -2,8 +2,6 @@
 
 namespace App\Repositories\AdminRepository;
 
-use App\Models\Admin as Admin;
-
 interface AdminRepositoryInterface {
 	public function getAll();
 	public function get($id);

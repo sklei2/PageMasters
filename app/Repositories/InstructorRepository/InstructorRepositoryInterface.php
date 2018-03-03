@@ -1,8 +1,8 @@
 <?php 
 
-namespace App\Repositories\BookRepository;
+namespace App\Repositories\InstructorRepository;
 
-interface BookRepositoryInterface {
+interface InstructorRepositoryInterface {
 	public function getAll();
 	public function get($id);
 	public function delete($id);
