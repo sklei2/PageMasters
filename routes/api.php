@@ -92,3 +92,33 @@ Route::delete(
 	'courses/delete/{id}',
 	'ApiControllers\CourseController@delete'
 );
+
+// Instructors Routes
+Route::post(
+	'instructors/create/',
+	'ApiControllers\InstructorController@create'
+);
+
+Route::get(
+	'instructors',
+	'ApiControllers\InstructorController@getAll'
+);
+
+Route::get(
+	'instructors/{id}',
+	'ApiControllers\InstructorController@get'
+);
+
+Route::get(
+	'instructors/{id}/courses',
+	'ApiControllers\InstructorController@getCourses'
+);
+
+Route::put(
+	'instructors/update/{id}',
+	'ApiControllers\InstructorController@update'
+);
+Route::delete(
+	'instructors/delete/{id}',
+	'ApiControllers\InstructorController@delete'
+);
