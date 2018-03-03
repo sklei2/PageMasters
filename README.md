@@ -17,8 +17,10 @@ Run composer install. you should now have all the base packages
 ## Database Setup
 
 To initialize the database with some initial values enter the following:
-php artisan migrate
-php artisan db:seed
+
+`php artisan migrate`
+
+`php artisan db:seed`
 
 ## Run local
 
