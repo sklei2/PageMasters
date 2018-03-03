@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('login');
 });
 
+// Individual Book Page Route
+Route::get('book/{id}', 'BookController@show');
+
 Auth::routes();
 
 Route::get('/nametbd', function() {
@@ -28,3 +31,4 @@ Route::get('/books', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
+
