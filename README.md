@@ -1,19 +1,24 @@
 # BookStore
 
+## Server Setup
+
+- `sudo su`
+- `cd /var/www/html/`
+- `git clone https://github.com/sklei2/PageMasters`
+- `apt install libapache2-mod-php npm node`
+- `a2enmod php7.2`
+- `a2enmod rewrite`
+- `cd PageMasters`
+- `cp laravel.conf /etc/apache2/sites-available/`
+- `npm install`
+- `composer install`
+- `npm run dev`
+- `a2ensite laravel.conf`
+- `a2dissite 000-default.conf`
+- `service apache2 reload`
+- `service apache2 restart`
+
 ## Installation
-
-Git clone.
-Be sure to have PHP 7 installed on your dev environment
-You also need:
- - OpenSSL PHP Extension
- - PDO PHP Extension
- - Mbstring PHP Extension
- - Tokenizer PHP Extension
- - XML PHP Extension
- - MySQL Server
-You have to install the packages via apt-get or something similar.
-
-Run composer install. you should now have all the base packages
 
 #### General
 
