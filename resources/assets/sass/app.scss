@@ -8,6 +8,8 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+// TBD
+@import "nametbd";
 .flex-center {
   align-items: center;
   display: flex;
@@ -23,6 +25,10 @@ body {
   height: 100%;
 }
 
+#userInfo {
+  margin: auto
+}
+
 #bookPage {
   padding-left: 0;
   padding-right: 0;
@@ -31,3 +37,4 @@ body {
   flex: 1;
   display: flex;
 }
+
