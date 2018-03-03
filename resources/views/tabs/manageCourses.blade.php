@@ -25,13 +25,21 @@
     );
 @endphp
 <div id="courses">
-
     <button id="addCourse" type="button" class="btn btn-secondary row">Add Course</button>
     @foreach ($managedCourses as $course)
-        <div class="course">
-            <p>{{$course->name}}:</p>
-            <p>{{$course->code}}:</p>
-            <p>{{$course->textbook}}:</p>
+        <div class="course container">
+            <div class="row">
+                <b class="courseLabel">Course name:</b>
+                <p class="courseInfo">{{$course->name}}</p>
+            </div>
+            <div class="row">
+                <b class="courseLabel">Course code:</b>
+                <p class="courseInfo">{{$course->code}}</p>
+            </div>
+            <div class="row">
+                <b class="courseLabel">Required reading:</b>
+                <p class="courseInfo">{{$course->textbook}}</p>
+            </div>
             <button class="btn btn-default"><span id="editCourse" class="glyphicon glyphicon-pencil"></span></button>
         </div>
     @endforeach
