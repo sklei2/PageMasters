@@ -35,7 +35,7 @@
                     <li role="presentation"><a href="#manageCourses" class="myTabs" aria-controls="manageCourses" role="tab" data-toggle="tab">Manage Courses</a></li>
                     <li role="presentation"><a href="#enrolledCourses" class="myTabs" aria-controls="enrolledCourses" role="tab" data-toggle="tab">Enrolled Courses</a></li>
                     <li role="presentation"><a href="#accountBalance" class="myTabs" aria-controls="accountBalance" role="tab" data-toggle="tab">Account Balance</a></li>
-                    <li role="presentation"><a href="#profileSettings" class="myTabs" aria-controls="profileSettings" role="tab" data-toggle="tab">Profile Settings</a></li>
+                    <li role="presentation"><a href="#profileInfo" class="myTabs" aria-controls="profileInfo" role="tab" data-toggle="tab">Profile Info</a></li>
                   </ul>
 
                   <!-- Tab panes -->
@@ -50,10 +50,10 @@
                         @include('tabs.enrolledCourses')
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="accountBalance">
-
+                        @include('tabs.accountBalance')
                     </div>
-                    <div role="tabpanel" class="tab-pane fade" id="profileSettings">
-
+                    <div role="tabpanel" class="tab-pane fade" id="profileInfo">
+                        @include('tabs.profileInfo')
                     </div>
                   </div>
                 </div>

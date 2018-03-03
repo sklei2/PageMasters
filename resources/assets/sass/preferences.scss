@@ -14,7 +14,7 @@
 .nav-tabs {
   text-align:center;
 }
-
+/* CSS for enrolledCourses/managedCourses tabs*/
 #addCourse {
   float: right;
   margin: 5px;
@@ -35,10 +35,14 @@
   width: 100%;
 }
 
-.courseInfo {
+.infoContent {
   float:right;
 }
 
-.courseLabel {
+.infoLabel {
   float:left;
+}
+ /* CSS for accountBalance tab*/
+#addToBalance {
+  float: right;
 }
