@@ -2,7 +2,7 @@
 
 namespace App\Repositories\InstructorRepository;
 
-use App\Repositories\CourseRepository\InstructorRepositoryInterface;
+use App\Repositories\InstructorRepository\InstructorRepositoryInterface;
 use App\Repositories\BaseRepository;
 use App\Models\Instructor as Instructor;
 
