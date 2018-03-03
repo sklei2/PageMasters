@@ -62,3 +62,33 @@ Route::delete(
 	'books/delete/{id}',
 	'ApiControllers\BookController@delete'
 );
+
+// Courses Routes
+Route::post(
+	'courses/create/',
+	'ApiControllers\CourseController@create'
+);
+
+Route::get(
+	'courses',
+	'ApiControllers\CourseController@getAll'
+);
+
+Route::get(
+	'courses/{id}',
+	'ApiControllers\CourseController@get'
+);
+
+Route::get(
+	'courses/{id}/books',
+	'ApiControllers\CourseController@getCourseBooks'
+);
+
+Route::put(
+	'courses/update/{id}',
+	'ApiControllers\CourseController@update'
+);
+Route::delete(
+	'courses/delete/{id}',
+	'ApiControllers\CourseController@delete'
+);
