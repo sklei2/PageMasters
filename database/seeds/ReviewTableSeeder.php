@@ -47,7 +47,7 @@ class ReviewTableSeeder extends Seeder
     		'book_id' => $student->books->where('isbn', '=', '0553418025')->first()->id,
     		'rating' => 1.0,
     		'textReview' => "WHY DOESN'T HE JUST FLY HOME???"
-    	])
+    	]);
     	
     }
 }
