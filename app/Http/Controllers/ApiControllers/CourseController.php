@@ -31,7 +31,7 @@ class CourseController extends Controller
     	return response($course, $code);
     }
 
-    public function getCourseBooks($id) {
+    public function getBooks($id) {
         $course = $this->course->get($id);
         if ($course != null) {
             return response($course->books->all(), 200);

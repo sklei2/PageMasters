@@ -81,7 +81,7 @@ Route::get(
 
 Route::get(
 	'courses/{id}/books',
-	'ApiControllers\CourseController@getCourseBooks'
+	'ApiControllers\CourseController@getBooks'
 );
 
 Route::put(
