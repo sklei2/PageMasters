@@ -18,7 +18,6 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('isbn');
-            $table->float('rating', 3, 2);
             $table->decimal('price', 13, 4);
             $table->timestamps();
         });
