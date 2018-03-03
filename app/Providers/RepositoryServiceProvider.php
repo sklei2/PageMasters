@@ -35,5 +35,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\CourseRepository\CourseRepositoryInterface',
             'App\Repositories\CourseRepository\CourseRepository'
         );
+        $this->app->bind(
+            'App\Repositories\InstructorRepository\InstructorRepositoryInterface',
+            'App\Repositories\InstructorRepository\InstructorRepository'
+        );
     }
 }
