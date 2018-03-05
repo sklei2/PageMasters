@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->string('fName');
             $table->string('lName');
+            $table->decimal('account', 13, 4);
             $table->timestamps();
         });
     }
