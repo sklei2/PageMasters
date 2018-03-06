@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Book;
+use App\Models\Cart;
 
 class StudentTableSeeder extends Seeder
 {
@@ -39,6 +40,10 @@ class StudentTableSeeder extends Seeder
     		Book::where('isbn', '=','0201633612')->first()
     	);
 
+        $student->cart()->attach(
+            Cart::where('book_quantity', '=', 20)->first()
+        );
+
     	$student = Student::create([
     		'fName' => 'Clark',
     		'lName' => 'Kent'
@@ -59,6 +64,14 @@ class StudentTableSeeder extends Seeder
     	$student->courses()->attach(
     		Course::where('name', '=', 'Beers of the World')->first()
     	);
+
+        $student->cart()->attach(
+            Cart::where('book_quantity', '=', 5)->first()
+        );
+
+        $student->cart()->attach(
+            Cart::where('book_quantity', '=', 1)->first()
+        );
 
     	Student::create([
     		'fName' => 'Huge',
