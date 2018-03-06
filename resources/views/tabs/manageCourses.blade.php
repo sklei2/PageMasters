@@ -4,8 +4,8 @@
         window.onload = function(){
             var hash = window.location.hash;
             if(hash) {
+                //shitty fix to make sure the page displays the top of the window
                 var id = hash.replace('#', '');
-                console.log(id);
                 document.addEventListener("DOMContentLoaded", window.switchTabs(id))
             }
         }
