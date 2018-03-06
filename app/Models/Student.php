@@ -15,4 +15,8 @@ class Student extends Model
     public function courses() {
     	return $this->belongsToMany('App\Models\Course', 'student_course', 'student_id', 'course_id');
     }
+
+    public function cart() {
+    	return $this->belongsToMany('App\Models\Cart', 'student_cart', 'student_id', 'cart_id');
+    }
 }
