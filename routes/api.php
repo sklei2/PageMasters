@@ -17,9 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get(
+    'exchange',
+    'ApiControllers\ExchangeRateController@get'
+);
+
+
 // Admin Routes
 Route::post(
-	'admins/create/',
+	'admins',
 	'ApiControllers\AdminController@create'
 );
 Route::get(
@@ -31,17 +37,17 @@ Route::get(
 	'ApiControllers\AdminController@get'
 );
 Route::put(
-	'admins/update/{id}',
+	'admins/{id}',
 	'ApiControllers\AdminController@update'
 );
 Route::delete(
-	'admins/delete/{id}',
+	'admins/{id}',
 	'ApiControllers\AdminController@delete'
 );
 
 // Books Routes
 Route::post(
-	'books/create/',
+	'books',
 	'ApiControllers\BookController@create'
 );
 
@@ -55,11 +61,11 @@ Route::get(
 	'ApiControllers\BookController@get'
 );
 Route::put(
-	'books/update/{id}',
+	'books/{id}',
 	'ApiControllers\BookController@update'
 );
 Route::delete(
-	'books/delete/{id}',
+	'books/{id}',
 	'ApiControllers\BookController@delete'
 );
 
@@ -85,17 +91,17 @@ Route::get(
 );
 
 Route::put(
-	'courses/update/{id}',
+	'courses/{id}',
 	'ApiControllers\CourseController@update'
 );
 Route::delete(
-	'courses/delete/{id}',
+	'courses/{id}',
 	'ApiControllers\CourseController@delete'
 );
 
 // Instructors Routes
 Route::post(
-	'instructors/create/',
+	'instructors',
 	'ApiControllers\InstructorController@create'
 );
 
@@ -115,17 +121,17 @@ Route::get(
 );
 
 Route::put(
-	'instructors/update/{id}',
+	'instructors/{id}',
 	'ApiControllers\InstructorController@update'
 );
 Route::delete(
-	'instructors/delete/{id}',
+	'instructors/{id}',
 	'ApiControllers\InstructorController@delete'
 );
 
 // Student Routes
 Route::post(
-	'students/create/',
+	'students',
 	'ApiControllers\StudentController@create'
 );
 
@@ -150,18 +156,18 @@ Route::get(
 );
 
 Route::put(
-	'students/update/{id}',
+	'students/{id}',
 	'ApiControllers\StudentController@update'
 );
 
 Route::delete(
-	'instructors/delete/{id}',
+	'instructors/{id}',
 	'ApiControllers\StudentController@delete'
 );
 
 // Review Routes
 Route::post(
-	'reviews/create/',
+	'reviews/',
 	'ApiControllers\ReviewController@create'
 );
 
@@ -186,11 +192,12 @@ Route::get(
 );
 
 Route::put(
-	'reviews/update/{id}',
+	'reviews/{id}',
 	'ApiControllers\ReviewController@update'
 );
 
 Route::delete(
-	'reviews/delete/{id}',
+	'reviews/{id}',
 	'ApiControllers\ReviewController@delete'
 );
+

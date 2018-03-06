@@ -1,13 +1,12 @@
 
 
 window.formSubmit = function(){
-    console.log('anything');
     $.ajax({
         url:'/api/courses',
         type:'post',
         data:$('#addCourseForm').serialize(),
         success:function(){
-            window.location.href = "/preferences";
+            window.location.href = "/preferences#manageCourses";
         }
     });
 };

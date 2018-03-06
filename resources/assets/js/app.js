@@ -7,3 +7,14 @@
 
 require('./bootstrap');
 require('./preferences');
+
+window.exchangeRates = function(){
+    var url = "/api/exchange";
+    $.ajax({
+        url: url,
+        type:'get',
+        success:function(res){
+            console.log(res);
+        }
+    });
+};

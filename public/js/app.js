@@ -763,6 +763,17 @@ module.exports = __webpack_require__(36);
 __webpack_require__(9);
 __webpack_require__(35);
 
+window.exchangeRates = function () {
+    var url = "/api/exchange";
+    $.ajax({
+        url: url,
+        type: 'get',
+        success: function success(res) {
+            console.log(res);
+        }
+    });
+};
+
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -31824,13 +31835,12 @@ module.exports = function spread(callback) {
 
 
 window.formSubmit = function () {
-    console.log('anything');
     $.ajax({
         url: '/api/courses',
         type: 'post',
         data: $('#addCourseForm').serialize(),
         success: function success() {
-            window.location.href = "/preferences";
+            window.location.href = "/preferences#manageCourses";
         }
     });
 };

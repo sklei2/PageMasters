@@ -46,5 +46,6 @@
             </div>
             <button class="btn btn-default"><span id="editCourse" class="glyphicon glyphicon-pencil"></span></button>
         </div>
+        </br>
     @endforeach
 </div>

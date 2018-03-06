@@ -38,7 +38,7 @@
         <th scope="col">Cover</th>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
-        <th scope="col">Price(USD)</th>
+        <th scope="col" onclick="window.exchangeRates()">Price(USD)</th>
         <th scope="col">Date Ordered</th>
     </tr>
     </thead>
