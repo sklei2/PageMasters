@@ -29,16 +29,16 @@
     @foreach ($managedCourses as $course)
         <div class="course container">
             <div class="row">
-                <b class="courseLabel">Course name:</b>
-                <p class="courseInfo">{{$course->name}}</p>
+                <b class="infoLabel">Course name:</b>
+                <p class="infoContent">{{$course->name}}</p>
             </div>
             <div class="row">
-                <b class="courseLabel">Course code:</b>
-                <p class="courseInfo">{{$course->code}}</p>
+                <b class="infoLabel">Course code:</b>
+                <p class="infoContent">{{$course->code}}</p>
             </div>
             <div class="row">
-                <b class="courseLabel">Required reading:</b>
-                <p class="courseInfo">{{$course->textbook}}</p>
+                <b class="infoLabel">Required reading:</b>
+                <p class="infoContent">{{$course->textbook}}</p>
             </div>
             <button class="btn btn-default"><span id="editCourse" class="glyphicon glyphicon-pencil"></span></button>
         </div>

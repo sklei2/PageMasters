@@ -8367,6 +8367,8 @@ button.close {
   text-align: center;
 }
 
+/* CSS for enrolledCourses/managedCourses tabs*/
+
 #addCourse {
   float: right;
   margin: 5px;
@@ -8394,12 +8396,18 @@ button.close {
   width: 100%;
 }
 
-.courseInfo {
+.infoContent {
   float: right;
 }
 
-.courseLabel {
+.infoLabel {
   float: left;
+}
+
+/* CSS for accountBalance tab*/
+
+#addToBalance {
+  float: right;
 }
 
 .flex-center {

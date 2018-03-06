@@ -4,6 +4,7 @@
 @section('mainDiv', 'bookPage')
 @section('content')
 @php
+
     class book {
         function __construct($id, $cover, $title, $author, $rating, $price) {
             $this->id = $id;
@@ -14,6 +15,7 @@
             $this->price = $price;
         }
     }
+
     $books = array(
       new book(
         0,
@@ -70,12 +72,12 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($books as $book)
+                @foreach ($response as $book)
                 <tr>
-                    <td><a href="{{url('/book/' . $book->id)}}"><img style="max-height: 150px" src="{{$book->cover}}"/></a></td>
+                    <td><a href="{{url('/book/' . $book->id)}}"><img style="max-height: 150px" src="{{$book->bookImgSrc}}"/></a></td>
                     <td><a href="{{url('/book/' . $book->id)}}">{{$book->title}}</a></td>
                     <td>{{$book->author}}</td>
-                    <td>{{$book->rating}}</td>
+                    <td>5 Stars</td>
                     <td>{{$book->price}}</td>
                     <td>
                         <button type="button" class="btn btn-default">

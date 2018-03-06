@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Illuminate\Routing\Router;
 
 // Temporary
 class t_book {
@@ -25,9 +26,17 @@ class BookController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Router $router)
     {
+        $this->router = $router;
         // $this->middleware('auth');
+    }
+
+    public function getAll() {
+        $request = Request::create('/api/books', 'GET');
+        $res = $this->router->dispatch($request);
+        $decoded = json_decode($res->content());
+        return view('books', ['response'=>  $decoded]);
     }
 
     /**

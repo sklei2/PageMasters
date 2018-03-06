@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // Individual Book Page Route
-Route::get('book/{id}', 'BookController@show');
+Route::get('/book/{id}', 'BookController@show');
 
 Auth::routes();
 
@@ -24,9 +24,7 @@ Route::get('/preferences', function() {
     return view('preferences');
 });
 
-Route::get('/books', function () {
-    return view('books');
-});
+Route::get('/books', 'BookController@getAll');
 
 Route::get('/cart', function () {
     return view('cart');
