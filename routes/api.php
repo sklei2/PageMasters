@@ -65,7 +65,7 @@ Route::delete(
 
 // Courses Routes
 Route::post(
-	'courses/create/',
+	'courses',
 	'ApiControllers\CourseController@create'
 );
 
