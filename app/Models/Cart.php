@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    public function user() {
+    public function student() {
     	return $this->belongsTo('App\Models\Student');
     }
 
