@@ -9,6 +9,6 @@ use App\Models\Cart as Cart;
 class CartRepository extends BaseRepository implements CartRepositoryInterface {
 
 	public function __construct(Cart $cart) {
-		$this->model = $cart
+		$this->model = $cart;
 	}
 }
