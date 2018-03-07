@@ -203,25 +203,16 @@ Route::delete(
 // Cart Items
 
 Route::post(
-	'carts/create/',
+	'carts/{id}/create/',
 	'ApiControllers\CartController@create'
 );
 
 Route::get(
-	'carts',
-	'ApiControllers\CartController@getAll'
-);
-
-Route::get(
 	'carts/{id}',
-	'ApiControllers\CartController@get'
+	'ApiControllers\CartController@getByStudentId'
 );
 
-Route::put(
-	'carts/update/{id}',
-	'ApiControllers\CartController@update'
-);
 Route::delete(
-	'carts/delete/{id}',
+	'carts/{id}/delete',
 	'ApiControllers\CartController@delete'
 );

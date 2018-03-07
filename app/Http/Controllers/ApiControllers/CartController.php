@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\ApiControllers;
 
 use App\Repositories\CartRepository\CartRepositoryInterface;
-use App\Models\CartItem as CartItem;
 use App\Http\Controllers\Controller;
+use App\Moels\CartItem;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -21,26 +21,34 @@ class CartController extends Controller
         return response($cart, $code);
     }
 
-    public function getAll() {
-    	return $this->cart->getAll();
-    }
-
-    public function get($id) {
-        $cart = $this->cart->get($id);
-        $code = $cart != null ? 200 : 404;
-    	return response($cart->cartItems(), $code);
-    }
-
     public function getByStudentId($student_id) {
-        $cart = $this->cart->where('student_id', '=', $student_id)->first();
+        $cart = $this->cart->getByStudentId($student_id);
+        $code = $cart != null ? 200 : 404;
+        $content = $cart != null ? $cart->cartItems : null;
+        return response($content, $code);
+    } 
 
+	public function addCartItem($student_id, Request $request) {        
+        $cart = $this->cart->getByStudentId($student_id);
+        $cartItem = CartItem::updateOrCreate($request->all());
+        if (!$cart) {
+            $cart = $this->cart->create(['student_id' => $student_id]);       
+        } 
+        $cart->cartItems()->save($cartItem);
+        return response(200);
     }
 
-	public function update(Request $request, $id) {            
-    	$success = $this->cart->update($id, $request->all());
-        $code = $success ? 200 : 400;
+    public function updateCartItem($student_id, Request $request) {
+        $cart = $this->cart->getByStudentId($stude);
+        if (!$cart) {
+            return response(404);
+        }
+        $success = $this->cart->cartItems()->update($request);
+        $code = $success ? 200 : 404;
         return response($code);
     }
+
+
 
     public function delete($id) {
     	$success = $this->cart->delete($id);
