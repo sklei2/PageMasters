@@ -17,10 +17,8 @@ class ExchangeRateController extends Controller
 
     public function get()
     {
-        print "nothing";
-        $requestRates = Request::create('https://openexchangerates.org/api/latest.json', 'GET', array(["app_id" => env('OPENEXCHANGE_APP_ID'), "base" => "USD"]));
-        $resRates = $this->router->dispatch($requestRates);
-        $decodedRates = json_decode($resRates->content());
+        $url = 'https://openexchangerates.org/api/latest.json?app_id=' . env('OPENEXCHANGE_APP_ID') . '&base=USD';
+        $decodedRates = json_decode(file_get_contents($url), true);
         $code = $decodedRates != null ? 200 : 404;
         return response($decodedRates, $code);
     }
