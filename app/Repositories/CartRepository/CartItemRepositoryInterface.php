@@ -2,7 +2,7 @@
 
 namespace App\Repositories\CartRepository;
 
-interface CartRepositoryInterface {
+interface CartItemRepositoryInterface {
 	public function getAll();
 	public function get($id);
 	public function delete($id);
