@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    protected $fillable = [
-    	'book_quantity'
-    ];
+    public function user() {
+    	return $this->belongsTo('App\Models\Student');
+    }
+
+    public function cartItems() {
+    	return $this->hasMany('App\Models\CartItem');
+    }
 }
