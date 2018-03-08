@@ -149,11 +149,6 @@ Route::get(
 	'ApiControllers\StudentController@getBooks'
 );
 
-Route::get(
-	'students/{id}/cart',
-	'ApiControllers\StudentController@getCart'
-);
-
 Route::put(
 	'students/update/{id}',
 	'ApiControllers\StudentController@update'
@@ -201,11 +196,6 @@ Route::delete(
 );
 
 // Cart Items
-
-Route::post(
-	'carts/create/',
-	'ApiControllers\CartController@create'
-);
 
 Route::put(
 	'carts/{id}/add/',
