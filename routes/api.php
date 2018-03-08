@@ -149,6 +149,11 @@ Route::get(
 	'ApiControllers\StudentController@getBooks'
 );
 
+Route::get(
+	'students/{id}/cart',
+	'ApiControllers\StudentController@getCart'
+);
+
 Route::put(
 	'students/update/{id}',
 	'ApiControllers\StudentController@update'
@@ -193,4 +198,31 @@ Route::put(
 Route::delete(
 	'reviews/delete/{id}',
 	'ApiControllers\ReviewController@delete'
+);
+
+// Cart Items
+
+Route::post(
+	'carts/create/',
+	'ApiControllers\CartController@create'
+);
+
+Route::put(
+	'carts/{id}/add/',
+	'ApiControllers\CartController@addBookToCart'
+);
+
+Route::put(
+	'carts/{id}/remove/',
+	'ApiControllers\CartController@removeBookFromCart'
+);
+
+Route::get(
+	'carts/{id}',
+	'ApiControllers\CartController@getByStudentId'
+);
+
+Route::delete(
+	'carts/{id}/delete',
+	'ApiControllers\CartController@deleteUsersCart'
 );
