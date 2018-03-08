@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+    protected $fillable = ['student_id'];
+
     public function student() {
     	return $this->belongsTo('App\Models\Student');
     }
