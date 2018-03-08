@@ -38,7 +38,15 @@
         <th scope="col">Cover</th>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
-        <th scope="col" onclick="window.exchangeRates()">Price(USD)</th>
+        <th scope="col">
+            <span class="dropdown">
+            <button id="currencyDropdown" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="window.exchangeRates()">
+                Price (USD)<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="currencyList">
+            </ul>
+            </span>
+        </th>
         <th scope="col">Date Ordered</th>
     </tr>
     </thead>
@@ -48,10 +56,11 @@
         <td><img style="max-height: 150px" src="{{$book->cover}}"/></td>
         <td>{{$book->title}}</td>
         <td>{{$book->author}}</td>
-        <td>{{$book->price}}</td>
+        <td class="price">{{$book->price}}</td>
         <td>{{$book->dateOrdered}}</td>
     </tr>
     @endforeach
     </tbody>
 </table>
 <p class="flex-center">End of order history</p>
+

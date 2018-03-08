@@ -1,15 +1,5 @@
 <div id="courses">
-    <button id="addCourse" type="button" data-toggle="modal" data-target="#addCourseModal" class="btn btn-secondary row">Add Course</button>
-    <script>
-        window.onload = function(){
-            var hash = window.location.hash;
-            if(hash) {
-                //shitty fix to make sure the page displays the top of the window
-                var id = hash.replace('#', '');
-                document.addEventListener("DOMContentLoaded", window.switchTabs(id))
-            }
-        }
-    </script>
+    <button id="addCourse" type="button" data-toggle="modal" data-target="#addCourseModal" class="btn btn-primary row">Add Course</button>
     <!-- Modal -->
     <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -28,7 +18,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" type="Submit" id="formSubmit" onclick="window.formSubmit()">Add course</button>
+                        <button type="button" class="btn btn-primary" type="Submit" id="formSubmit" onclick="window.addCourse()">Add course</button>
                     </div>
                 </form>
             </div>

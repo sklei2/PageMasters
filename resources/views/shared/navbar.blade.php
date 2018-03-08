@@ -16,7 +16,7 @@
                     <a href="/cart">Cart</a>
                 </li>
                 <li>
-                    <a href="/manageBooks">Book Management</a>
+                    <a href="/admin">Book Management</a>
                 </li>
                 <li>
                     <a href="/preferences#manageCourses" id="manageCourses" onclick="window.switchTabs(this.id)">Course Management</a>

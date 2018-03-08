@@ -67,7 +67,15 @@
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
                 <th scope="col">Rating</th>
-                <th scope="col">Price(USD)</th>
+                <th scope="col">
+                    <span class="dropdown">
+                        <button id="currencyDropdown" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="window.exchangeRates()">
+                            Price (USD)<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="currencyList">
+                        </ul>
+                    </span>
+                </th>
                 <th scope="col">Add to Cart</th>
             </tr>
             </thead>
@@ -78,7 +86,7 @@
                     <td><a href="{{url('/book/' . $book->id)}}">{{$book->title}}</a></td>
                     <td>{{$book->author}}</td>
                     <td>5 Stars</td>
-                    <td>{{$book->price}}</td>
+                    <td class="price">{{$book->price}}</td>
                     <td>
                         <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-plus-sign"></span>

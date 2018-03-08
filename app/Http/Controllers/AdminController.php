@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 
-class PreferencesController extends Controller
+class AdminController extends Controller
 {
     /**
-     * Instantiate a new PreferencesController instance.
+     * Instantiate a new AdminController instance.
      *
      * Add middleware here to run on request before recieved.
      *
@@ -28,6 +28,8 @@ class PreferencesController extends Controller
         $resCourses = $this->router->dispatch($requestCourses);
         $decodedBooks = json_decode($resBooks->content());
         $decodedCourses = json_decode($resCourses->content());
-        return view('preferences', ['books'=>  $decodedBooks, 'courses'=>$decodedCourses]);
+        return view('admin', ['books'=>  $decodedBooks, 'courses'=>$decodedCourses]);
     }
+
+
 }

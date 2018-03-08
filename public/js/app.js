@@ -762,15 +762,34 @@ module.exports = __webpack_require__(36);
 
 __webpack_require__(9);
 __webpack_require__(35);
+__webpack_require__(47);
 
 window.exchangeRates = function () {
     var url = "/api/exchange";
     $.ajax({
         url: url,
-        type: 'get',
+        type: 'GET',
         success: function success(res) {
-            console.log(res);
+            var rates = res.rates;
+            for (var property in rates) {
+                if (rates.hasOwnProperty(property)) {
+                    var listItem = "<li><a onClick='window.changeCurrency(this)' id='" + property + "'>" + property + "</a></li>";
+                    $("#currencyList").append(listItem);
+                    localStorage.setItem(property, rates[property]);
+                }
+            }
         }
+    });
+};
+
+window.changeCurrency = function (link) {
+    $('#currencyDropdown').text("Price (" + link.id + ")");
+    $('#currencyDropdown').addClass("disabled").prop('onclick', null).off('click');
+    $('.price').each(function (i, elem) {
+        var $elem = $(elem);
+        var currPrice = $elem.text();
+        var newPrice = Math.round(currPrice.replace('$', '') * localStorage.getItem(link.id) * 100) / 100;
+        $elem.text(newPrice);
     });
 };
 
@@ -31834,7 +31853,7 @@ module.exports = function spread(callback) {
 
 
 
-window.formSubmit = function () {
+window.addCourse = function () {
     $.ajax({
         url: '/api/courses',
         type: 'post',
@@ -31857,6 +31876,35 @@ window.switchTabs = function switchTabs(id) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
+/***/ (function(module, exports) {
+
+window.disableBook = function () {
+    //put request goes here
+};
+
+window.addBook = function () {
+    //post request goes here
+};
+
+$(function () {
+    var $select = $(".quantity");
+    for (i = 1; i <= 100; i++) {
+        $select.append($('<option></option>').val(i).html(i));
+    }
+});
 
 /***/ })
 /******/ ]);

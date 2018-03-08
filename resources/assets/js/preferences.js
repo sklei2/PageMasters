@@ -1,6 +1,6 @@
 
 
-window.formSubmit = function(){
+window.addCourse = function(){
     $.ajax({
         url:'/api/courses',
         type:'post',

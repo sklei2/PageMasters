@@ -8410,6 +8410,14 @@ button.close {
   float: right;
 }
 
+table#courseList ul {
+  height: 150px;
+  width: 100%;
+  list-style-type: none;
+  height: 400px;
+  overflow-y: auto;
+}
+
 .flex-center {
   -webkit-box-align: center;
       -ms-flex-align: center;
