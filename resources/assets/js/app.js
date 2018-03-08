@@ -14,6 +14,7 @@ window.exchangeRates = function(){
     $.ajax({
         url: url,
         type:'GET',
+        //who needs error handling
         success:function(res){
             var rates = res.rates;
             for (var property in rates) {

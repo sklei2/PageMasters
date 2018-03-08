@@ -18,7 +18,7 @@
                     Order History
                 </a>
             </li>
-            <li role="presentation" id="manageCourses" onclick="switchTabs(this.id)">
+            <li role="presentation" id="manageCourses" class="active" onclick="switchTabs(this.id)">
                 <a href="#manageCourses" class="myTabs" aria-controls="manageCourses" role="tab">
                     Manage Courses
                 </a>
@@ -47,7 +47,7 @@
             <div role="tabpanel" class="tab-pane fade" id="manageCourses">
                 @include('tabs.manageCourses')
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="enrolledCourses">
+            <div role="tabpanel" class="tab-pane fade active in" id="enrolledCourses">
                 @include('tabs.enrolledCourses')
             </div>
             <div role="tabpanel" class="tab-pane fade" id="accountBalance">

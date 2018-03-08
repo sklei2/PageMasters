@@ -1,5 +1,4 @@
-
-<table id="courseList"class="table">
+<table id="courseList" class="table">
     <thead>
     <tr>
         <th scope="col">Title</th>

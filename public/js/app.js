@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(36);
+module.exports = __webpack_require__(37);
 
 
 /***/ }),
@@ -762,13 +762,14 @@ module.exports = __webpack_require__(36);
 
 __webpack_require__(9);
 __webpack_require__(35);
-__webpack_require__(47);
+__webpack_require__(36);
 
 window.exchangeRates = function () {
     var url = "/api/exchange";
     $.ajax({
         url: url,
         type: 'GET',
+        //who needs error handling
         success: function success(res) {
             var rates = res.rates;
             for (var property in rates) {
@@ -31875,22 +31876,6 @@ window.switchTabs = function switchTabs(id) {
 /* 36 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */
-/***/ (function(module, exports) {
-
 window.disableBook = function () {
     //put request goes here
 };
@@ -31905,6 +31890,12 @@ $(function () {
         $select.append($('<option></option>').val(i).html(i));
     }
 });
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

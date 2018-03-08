@@ -8410,11 +8410,9 @@ button.close {
   float: right;
 }
 
-table#courseList ul {
-  height: 150px;
+table#courseList tr {
   width: 100%;
   list-style-type: none;
-  height: 400px;
   overflow-y: auto;
 }
 
