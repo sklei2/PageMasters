@@ -17,12 +17,6 @@ class CartController extends Controller
 		$this->cart = $cart;
 	}
 
-    public function create(Request $request) {
-    	$cart = $this->cart->create($request->all());
-        $code = $cart != null ? 200 : 400;
-        return response($cart, $code);
-    }
-
     public function getByStudentId($student_id) {
         $cart = $this->cart->getByStudentId($student_id);
         $code = $cart != null ? 200 : 404;
@@ -45,10 +39,8 @@ class CartController extends Controller
 
         if($item) {
             $totalQuantity = $item->book_quantity + $quantity;
-            var_dump($totalQuantity);
             $data = array(['book_quantity' => $totalQuantity]);
             $item->book_quantity = $totalQuantity;
-            var_dump($item);
             $item->save();
         } else {
             $attributes = $request->all();
@@ -60,13 +52,25 @@ class CartController extends Controller
         return response(200);
     }
 
-    public function updateCartItem($student_id, Request $request) {
-        $cart = $this->cart->getByStudentId($stude);
-        if (!$cart) {
-            return response(404);
+    public function removeBookFromCart($student_id, Request $request) {        
+        $code = 404;
+        $cart = $this->cart->getByStudentId($student_id);
+
+        if ($cart) {
+            $book_id = $request->input('book_id');
+            $quantity = $request->input('book_quantity');
+            $item = $cart->cartItems()->where('book_id', '=', $book_id)->first();
+            if($item) {
+                $totalQuantity = $item->book_quantity - $quantity;
+                if ($totalQuantity <= 0) {
+                    $item->delete();
+                } else {
+                    $item->book_quantity = $totalQuantity;
+                    $item->save();
+                }
+                $code = 200;
+            }
         }
-        $success = $this->cart->cartItems()->update($request);
-        $code = $success ? 200 : 404;
         return response($code);
     }
 

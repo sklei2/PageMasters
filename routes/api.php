@@ -212,6 +212,11 @@ Route::put(
 	'ApiControllers\CartController@addBookToCart'
 );
 
+Route::put(
+	'carts/{id}/remove/',
+	'ApiControllers\CartController@removeBookFromCart'
+);
+
 Route::get(
 	'carts/{id}',
 	'ApiControllers\CartController@getByStudentId'
