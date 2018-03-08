@@ -216,3 +216,9 @@ Route::delete(
     'carts/{id}/delete',
     'ApiControllers\CartController@deleteUsersCart'
 );
+
+//Currency Conversion route
+Route::get(
+    'exchange',
+    'ApiControllers\ExchangeRateController@get'
+);
