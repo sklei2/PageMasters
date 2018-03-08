@@ -4,7 +4,9 @@ namespace App\Http\Controllers\ApiControllers;
 
 use App\Repositories\CartRepository\CartRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Moels\CartItem;
+use App\Models\Cart;
+use App\Models\CartItem;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -24,7 +26,10 @@ class CartController extends Controller
     public function getByStudentId($student_id) {
         $cart = $this->cart->getByStudentId($student_id);
         $code = $cart != null ? 200 : 404;
-        $content = $cart != null ? $cart->cartItems : null;
+        $content = null;
+        if ($cart) {
+            $content = CartItem::join('books', 'books.id', 'book_id')->where('cart_id', '=', $cart->id)->get();
+        }            
         return response($content, $code);
     } 
 
@@ -47,8 +52,6 @@ class CartController extends Controller
         $code = $success ? 200 : 404;
         return response($code);
     }
-
-
 
     public function delete($id) {
     	$success = $this->cart->delete($id);
