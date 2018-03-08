@@ -39,7 +39,7 @@ class StudentTableSeeder extends Seeder
 
     	$student->books()->attach(
     		Book::where('isbn', '=','0201633612')->first()
-    	);
+    	);        
 
         $student->books()->attach(
             Book::where('isbn', '=', '0425245284')->first()

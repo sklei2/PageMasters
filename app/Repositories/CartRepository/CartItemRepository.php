@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Repositories\CartItemRepository;
+
+use App\Repositories\CartItemRepository\CartItemRepositoryInterface;
+use App\Repositories\BaseRepository;
+use App\Models\CartItem as CartItem;
+
+class CartItemRepository extends BaseRepository implements CartItemRepositoryInterface {
+
+	public function __construct(CartItem $cartItem) {
+		$this->model = $cartItem;
+	}
+}

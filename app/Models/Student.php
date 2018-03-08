@@ -19,4 +19,8 @@ class Student extends Model
     public function courses() {
     	return $this->belongsToMany('App\Models\Course', 'student_course', 'student_id', 'course_id');
     }
+
+    public function cart() {
+        return $this->hasOne('App\Models\Cart');
+    }
 }
