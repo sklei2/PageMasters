@@ -207,6 +207,11 @@ Route::post(
 	'ApiControllers\CartController@create'
 );
 
+Route::put(
+	'carts/{id}/add/',
+	'ApiControllers\CartController@addBookToCart'
+);
+
 Route::get(
 	'carts/{id}',
 	'ApiControllers\CartController@getByStudentId'

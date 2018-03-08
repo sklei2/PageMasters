@@ -33,13 +33,30 @@ class CartController extends Controller
         return response($content, $code);
     } 
 
-	public function addCartItem($student_id, Request $request) {        
+	public function addBookToCart($student_id, Request $request) {
+        $book_id = $request->input('book_id');
+        $quantity = $request->input('book_quantity');
         $cart = $this->cart->getByStudentId($student_id);
-        $cartItem = CartItem::updateOrCreate($request->all());
         if (!$cart) {
-            $cart = $this->cart->create(['student_id' => $student_id]);       
-        } 
-        $cart->cartItems()->save($cartItem);
+            $cart = $this->cart->create(['student_id' => $student_id]);
+        }
+
+        $item = $cart->cartItems()->where('book_id', '=', $book_id)->first();
+
+        if($item) {
+            $totalQuantity = $item->book_quantity + $quantity;
+            var_dump($totalQuantity);
+            $data = array(['book_quantity' => $totalQuantity]);
+            $item->book_quantity = $totalQuantity;
+            var_dump($item);
+            $item->save();
+        } else {
+            $attributes = $request->all();
+            $attributes['cart_id'] = $cart->id;
+            $item = CartItem::create($attributes);
+            $cart->cartItems()->save($item);
+        }
+
         return response(200);
     }
 
