@@ -214,5 +214,5 @@ Route::get(
 
 Route::delete(
 	'carts/{id}/delete',
-	'ApiControllers\CartController@delete'
+	'ApiControllers\CartController@deleteUsersCart'
 );

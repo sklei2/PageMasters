@@ -53,8 +53,11 @@ class CartController extends Controller
         return response($code);
     }
 
-    public function delete($id) {
-    	$success = $this->cart->delete($id);
+    public function deleteUsersCart($id) {
+    	$cart = $this->cart->getByStudentId($id);
+        if ($cart) {
+            $success = $this->cart->delete($cart->id);
+        }
         $code = $success ? 200 : 404;
         return response($code);
     }

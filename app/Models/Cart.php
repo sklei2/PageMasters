@@ -13,4 +13,14 @@ class Cart extends Model
     public function cartItems() {
     	return $this->hasMany('App\Models\CartItem');
     }
+
+    protected static function boot() {
+    	parent::boot();
+
+    	// basically once the delete is called on this model,
+    	// it will remove all the related models
+    	static::deleting(function($cart) {
+    		$cart->cartItems()->delete();
+    	});
+    }
 }
