@@ -8350,3 +8350,110 @@ button.close {
   }
 }
 
+.content {
+  margin-top: 2%;
+}
+
+#tabs {
+  width: 50%;
+}
+
+.nav-tabs > li {
+  float: none;
+  display: inline-block;
+}
+
+.nav-tabs {
+  text-align: center;
+}
+
+/* CSS for enrolledCourses/managedCourses tabs*/
+
+#addCourse {
+  float: right;
+  margin: 5px;
+}
+
+#courses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#editCourse {
+  float: right;
+}
+
+.course {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.infoContent {
+  float: right;
+}
+
+.infoLabel {
+  float: left;
+}
+
+/* CSS for accountBalance tab*/
+
+#addToBalance {
+  float: right;
+}
+
+table#courseList tr {
+  width: 100%;
+  list-style-type: none;
+  overflow-y: auto;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#userInfo {
+  margin: auto;
+}
+
+#bookPage {
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+

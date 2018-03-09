@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+// Individual Book Page Route
+Route::get('/book/{id}', 'BookController@show');
+
+Auth::routes();
+
+Route::get('/preferences', 'PreferencesController@show');
+
+Route::get('/admin', 'AdminController@show');
+
+Route::get('/books', 'BookController@getAll');
+
+Route::get('/cart', 'CartController@getCart');
+

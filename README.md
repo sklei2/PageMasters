@@ -1,5 +1,23 @@
 # BookStore
 
+## Server Setup
+
+- `sudo su`
+- `cd /var/www/html/`
+- `git clone https://github.com/sklei2/PageMasters`
+- `apt install libapache2-mod-php npm node`
+- `a2enmod php7.2`
+- `a2enmod rewrite`
+- `cd PageMasters`
+- `cp laravel.conf /etc/apache2/sites-available/`
+- `npm install`
+- `composer install`
+- `npm run dev`
+- `a2ensite laravel.conf`
+- `a2dissite 000-default.conf`
+- `service apache2 reload`
+- `service apache2 restart`
+
 ## Installation
 
 #### General
@@ -24,6 +42,29 @@ Then run:
   - `wget https://raw.githubusercontent.com/laravel/laravel/master/.env.example`
   - `mv .env.example .env`
   - `php artisan key:generate`
+
+## Database Setup
+### Create Database From Scratch
+First you need to create the database in MySQL and setup the environment:
+- log in to MySQL Server
+- create a database. By default we expect the name to be `PageMasters`, but that's up to you
+- Open the `.env` file
+- insert the information about the MySQL Database
+    - Host
+    - Port
+    - Database Name
+    - Database passord
+
+Save the `.env` file. **Do *not* commit this**. The `.env` file is for your own system configuration
+
+### Initialize Setup Database
+To initialize the database with some initial values enter the following:
+-`php artisan migrate:fresh`
+-`php artisan db:seed`
+
+If  `php artisan db:seed` gives the error `Class ????TableSeeder does not exist` run the following:
+-`composer dump-autoload` 
+Then run the initialize commands again.
 
 ## Run local
 

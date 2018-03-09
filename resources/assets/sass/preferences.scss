@@ -1,0 +1,48 @@
+.content {
+  margin-top: 2%;
+}
+
+#tabs {
+  width: 50%;
+}
+
+.nav-tabs > li {
+  float:none;
+  display:inline-block;
+}
+
+.nav-tabs {
+  text-align:center;
+}
+/* CSS for enrolledCourses/managedCourses tabs*/
+#addCourse {
+  float: right;
+  margin: 5px;
+}
+
+#courses {
+  display: flex;
+  flex-direction: column;
+}
+
+#editCourse {
+  float:right;
+}
+
+.course {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+}
+
+.infoContent {
+  float:right;
+}
+
+.infoLabel {
+  float:left;
+}
+ /* CSS for accountBalance tab*/
+#addToBalance {
+  float: right;
+}
