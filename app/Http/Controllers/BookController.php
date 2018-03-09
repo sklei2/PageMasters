@@ -88,6 +88,6 @@ class BookController extends Controller
           )
         );
 
-        return view('book', (array) $books[$id]);
+        return view('cart', (array) $books[$id]);
     }
 }

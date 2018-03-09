@@ -26,7 +26,5 @@ Route::get('/admin', 'AdminController@show');
 
 Route::get('/books', 'BookController@getAll');
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', 'CartController@getCart');
 
