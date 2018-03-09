@@ -155,7 +155,7 @@ Route::put(
 );
 
 Route::delete(
-    'instructors/delete/{id}',
+    'students/delete/{id}',
     'ApiControllers\StudentController@delete'
 );
 
