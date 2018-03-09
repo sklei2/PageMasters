@@ -6,3 +6,4 @@ resources/views/vendor/*
 
 # Files
 .env
+deploy_cron.sh
