@@ -79,7 +79,8 @@ class StudentAPITest extends TestCase
     {
         $student_args = array(
             'fName' => 'TestStudent',
-            'lName' => 'testStudentLastName'
+            'lName' => 'testStudentLastName',
+            'account' => 0
         );
 
         $response = $this->post('/api/students/create', $student_args);;

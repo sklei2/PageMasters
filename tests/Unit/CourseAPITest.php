@@ -82,7 +82,7 @@ class CourseAPITest extends TestCase
             'description' => 'TestCourseDescription'
         );
 
-        $response = $this->post('/api/courses/create', $course_args);;
+        $response = $this->post('/api/courses', $course_args);;
 
         $response->assertStatus(200);
 

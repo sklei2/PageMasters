@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\CartItemRepository;
+namespace App\Repositories\CartRepository;
 
-use App\Repositories\CartItemRepository\CartItemRepositoryInterface;
+use App\Repositories\CartRepository\CartItemRepositoryInterface;
 use App\Repositories\BaseRepository;
 use App\Models\CartItem as CartItem;
 
