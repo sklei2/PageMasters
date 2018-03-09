@@ -110,7 +110,6 @@ class StudentAPITest extends TestCase
      */
     public function testDeleteStudentByIDTest($test_student_id)
     {
-        file_put_contents('debug.txt', print_r($test_student_id, true));
         $response = $this->delete('/api/students/delete/'. $test_student_id);
 
         $response->assertStatus(200);

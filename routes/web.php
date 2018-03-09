@@ -20,15 +20,11 @@ Route::get('/book/{id}', 'BookController@show');
 
 Auth::routes();
 
-Route::get('/preferences', function() {
-    return view('preferences');
-});
+Route::get('/preferences', 'PreferencesController@show');
 
-Route::get('/books', function () {
-    return view('books');
-});
+Route::get('/admin', 'AdminController@show');
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/books', 'BookController@getAll');
+
+Route::get('/cart', 'CartController@getCart');
 

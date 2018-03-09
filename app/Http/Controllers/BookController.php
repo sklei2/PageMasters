@@ -6,18 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use App\Book;
 
-// Temporary
-class t_book {
-    function __construct($cover, $title, $author, $rating, $price, $reviews) {
-        $this->cover = $cover;
-        $this->title = $title;
-        $this->author = $author;
-        $this->rating = $rating;
-        $this->price = $price;
-        $this->reviews = $reviews;
-    }
-}
-
 class BookController extends Controller
 {
 
@@ -35,8 +23,15 @@ class BookController extends Controller
      */
     public function __construct(Router $router)
     {
-        // $this->middleware('auth');
         $this->router = $router;
+        // $this->middleware('auth');
+    }
+
+    public function getAll() {
+        $request = Request::create('/api/books', 'GET');
+        $res = $this->router->dispatch($request);
+        $decoded = json_decode($res->content());
+        return view('books', ['response'=>  $decoded]);
     }
 
     /**
@@ -47,8 +42,6 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        // Eventually we will us this. For now we need to fake stuff
-        // return view('book', ['book' => Book::findOrFail($id)]);
         
         $request = Request::create('/api/books/'. (string)$id, 'GET');
         $response = $this->router->dispatch($request);

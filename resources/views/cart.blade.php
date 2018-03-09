@@ -16,31 +16,6 @@
 </head>
 <body>
 @php
-    class book {
-        function __construct($cover, $title, $author, $quantity, $price) {
-            $this->cover = $cover;
-            $this->title = $title;
-            $this->author = $author;
-            $this->quantity = $quantity;
-            $this->price = $price;
-        }
-    }
-    $books = array(
-      new book(
-        'https://prodimage.images-bn.com/pimages/9780316338868_p0_v1_s600x595.jpg',
-        'Food: What the Heck Should I Eat',
-        'Mark Hyman, MD',
-        3,
-        18.89
-      ),
-      new book(
-      'https://prodimage.images-bn.com/pimages/9780312577230_p0_v4_s600x595.jpg',
-      'The Great Alone',
-      'Kristin Hannah',
-      1,
-      17.39
-      )
-    );
     $totalCost = 0;
 @endphp
 <div id="bookPage">
@@ -58,13 +33,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($books as $book)
+            @foreach ($response as $book)
                 <tr>
-                    <td><img style="max-height: 150px" src="{{$book->cover}}"/></td>
+                    <td><img style="max-height: 150px" src="{{$book->bookImgSrc}}"/></td>
                     <td>{{$book->title}}</td>
                     <td>{{$book->author}}</td>
                     <td>${{$book->price}}</td>
-                    <td>{{$book->quantity}}</td>
+                    <td>{{$book->book_quantity}}</td>
                     <td style="text-align: center">
                         <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-trash"></span>
@@ -72,7 +47,7 @@
                     </td>
                 </tr>
                 @php
-                $totalCost += $book->quantity * $book->price;
+                $totalCost += $book->book_quantity * $book->price;
                 @endphp
             @endforeach
             </tbody>

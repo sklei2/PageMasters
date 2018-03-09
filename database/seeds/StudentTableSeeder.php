@@ -18,7 +18,8 @@ class StudentTableSeeder extends Seeder
 
     	$student = Student::create([
     		'fName' => 'John',
-    		'lName' => 'Doe'
+    		'lName' => 'Doe',
+            'account' => 100.0
     	]);
 
     	// Add couple book ids to the relational table
@@ -32,12 +33,13 @@ class StudentTableSeeder extends Seeder
 
     	$student = Student::create([
     		'fName' => 'Jane',
-    		'lName' => 'Doe'
+    		'lName' => 'Doe',
+            'account' => 150.0
     	]);
 
     	$student->books()->attach(
     		Book::where('isbn', '=','0201633612')->first()
-    	);
+    	);        
 
         $student->books()->attach(
             Book::where('isbn', '=', '0425245284')->first()
@@ -45,7 +47,8 @@ class StudentTableSeeder extends Seeder
 
     	$student = Student::create([
     		'fName' => 'Clark',
-    		'lName' => 'Kent'
+    		'lName' => 'Kent',
+            'account' => 100000.0
     	]);
 
     	$student->books()->attach(
@@ -66,7 +69,8 @@ class StudentTableSeeder extends Seeder
 
     	Student::create([
     		'fName' => 'Huge',
-    		'lName' => 'Slacker'
+    		'lName' => 'Slacker',
+            'account' => -100.0
     	]);
     }
 }
