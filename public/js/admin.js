@@ -1,12 +1,12 @@
-window.disableBook = function(){
+function disableBook() {
 	alert("DISABLE BOOK");
 };
 
-window.addBook = function(event){
+function addBook(event) {
 	alert("ADD BOOK");
 };
 
-window.coverImgChange = function(event) {
+function coverImgChange(event) {
 	alert("COVER IMAGE CHANGE");
 };
 
