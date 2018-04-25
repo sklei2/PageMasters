@@ -2,6 +2,10 @@
 
 @section('title', '{{ $title }}')
 
+@section('javascript')
+<script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
+@stop
+
 @section('content')
 <div class="position-ref full-height">
     <div class="content flex-center">
