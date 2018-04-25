@@ -15,4 +15,7 @@
     <div>
         <button type="button" class="btn btn-primary" type="Submit" id="formSubmit" onclick="window.addBook(event)">Add book</button>
     </div>
-</form>
+</form
+<div id="preview">
+    <img id="bookCoverPreview" src="" onError="coverImageOnError(event)" onLoad="coverImageOnLoad(event)"/>
+</div>

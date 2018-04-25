@@ -2,6 +2,10 @@
 
 @section('title', '{{ $title }}')
 
+@section('css')
+<link href="{{ asset('css/admin.css') }}" rel="stylesheet" type="text/css">
+@stop
+
 @section('javascript')
 <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
 @stop

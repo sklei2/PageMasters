@@ -7,8 +7,21 @@ function addBook(event) {
 };
 
 function coverImgChange(event) {
-	alert("COVER IMAGE CHANGE");
+	var imagePreview = document.getElementById('bookCoverPreview');		
+	if (event.target.value) {
+		imagePreview.src = event.target.value;	
+	} else {
+		imagePreview.src = "#";
+	}	
 };
+
+function coverImageOnLoad(event) {
+	event.target.style.display = "block";
+}
+
+function coverImageOnError(event) {
+	event.target.style.display = "none";
+}
 
 $(function(){
     var $select = $(".quantity");
