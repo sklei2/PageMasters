@@ -10,9 +10,9 @@
         Price:
         <input class="form-control" type="text" required name="price" placeholder="Price">
         Cover Image URL:
-        <input class="form-control" type="text" required name="cover" placeholder="">
+        <input class="form-control" type="text" required name="cover" placeholder="" onChange="window.coverImgChange(event)">
     </div>
     <div>
-        <button type="button" class="btn btn-primary" type="Submit" id="formSubmit" onclick="window.addBook()">Add book</button>
+        <button type="button" class="btn btn-primary" type="Submit" id="formSubmit" onclick="window.addBook(event)">Add book</button>
     </div>
 </form>

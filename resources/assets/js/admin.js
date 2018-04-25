@@ -2,8 +2,13 @@ window.disableBook = function(){
 //put request goes here
 };
 
-window.addBook = function(){
+window.addBook = function(event){
+	var hello = 'hello';
 //post request goes here
+};
+
+window.coverImgChange = function(event) {
+
 };
 
 $(function(){
