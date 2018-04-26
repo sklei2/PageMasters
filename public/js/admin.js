@@ -10,8 +10,19 @@ function disableBook() {
 	alert("DISABLE BOOK");
 };
 
-function addBook(event) {
-	alert("ADD BOOK");
+function addBookFormSubmission(event) {
+	var keyValues = {};
+	var form = event.target;
+	for (var i = 0; i < form.elements.length; i++) {
+		var input = form.elements[i];
+		if (input.type != 'submit') {
+			keyValues[input.name] = input.value;
+		}
+	}
+
+	$.post('api/books', keyValues, function(data) {
+		alert(data);
+	});
 };
 
 function coverImgChange(event) {
