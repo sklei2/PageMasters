@@ -1,3 +1,11 @@
+window.onload = function() {
+	var imageUpload = document.getElementById('imageUrlUpload');
+	var imagePreview = document.getElementById('bookCoverPreview');
+	if (imageUpload.value){
+		imagePreview.src = imageUpload.value;
+	}
+};
+
 function disableBook() {
 	alert("DISABLE BOOK");
 };
@@ -7,7 +15,7 @@ function addBook(event) {
 };
 
 function coverImgChange(event) {
-	var imagePreview = document.getElementById('bookCoverPreview');		
+	var imagePreview = document.getElementById('bookCoverPreview');
 	if (event.target.value) {
 		imagePreview.src = event.target.value;	
 	} else {
