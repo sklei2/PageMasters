@@ -28,3 +28,8 @@ Route::get('/books', 'BookController@getAll');
 
 Route::get('/cart', 'CartController@getCart');
 
+Route::get('/coverage', function () {
+    return Redirect::to('report/report/index.html');
+});
+
+

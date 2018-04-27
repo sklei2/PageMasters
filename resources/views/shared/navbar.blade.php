@@ -24,6 +24,9 @@
                 <li>
                     <a href="/preferences#enrolledCourses" id="enrolledCourses" onclick="window.switchTabs(this.id)">Courses</a>
                 </li>
+                <li>
+                    <a href="/coverage">Coverage Report</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
