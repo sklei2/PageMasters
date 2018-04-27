@@ -17,6 +17,9 @@
 - `a2dissite 000-default.conf`
 - `service apache2 reload`
 - `service apache2 restart`
+- `composer run-script tests`
+- `mkdir /var/www/html/PageMasters/public/report/`
+- `ln -s /var/www/html/PageMasters/report/ /var/www/html/PageMasters/public/report/`
 
 ## Installation
 
@@ -69,4 +72,3 @@ Then run the initialize commands again.
 ## Run local
 
 To run locally use `php -S localhost:8000 -t public/` or `php artisan serve`.
-
