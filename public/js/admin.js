@@ -11,8 +11,6 @@ function disableBook() {
 };
 
 function addBookFormSubmission(event) {
-
-	//data['_token'] = $('meta[name=csrf-token]').attr('content');
 	$.ajax({
         url: '/api/books',
         type: 'post',
