@@ -1,4 +1,4 @@
-<form method="POST" action="#" id="addCourseForm" onsubmit="addBookFormSubmission(event)">
+<form  action="#" id="addBookForm" onsubmit="addBookFormSubmission(event)">
     <div>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         Title:

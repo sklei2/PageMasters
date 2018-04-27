@@ -11,19 +11,19 @@ function disableBook() {
 };
 
 function addBookFormSubmission(event) {
-	
-	var form = $('#addCourseForm');
-	var data = form.serialize();
 
 	//data['_token'] = $('meta[name=csrf-token]').attr('content');
-	$.get( '~/api/books',
-			data)
-	.done(function(data) {
-		var hello = 'hello'
-	})
-	.fail(function(data) {
-		var hello = 'hello'
-	});
+	$.ajax({
+        url: '/api/books',
+        type: 'post',
+        data: $('#addBookForm').serialize() + "&isEnabled=0",
+        success: function success(data) {            
+            console.log(data);
+        },
+        error: function error(data) {
+        	console.log(data);
+        }
+    });
 };
 
 function coverImgChange(event) {
