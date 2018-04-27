@@ -3,7 +3,7 @@
     <tr>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
-        <th scope="col">Disable</th>
+        <th scope="col">Disabled</th>
     </tr>
     </thead>
     <form id="disableBookForm">
