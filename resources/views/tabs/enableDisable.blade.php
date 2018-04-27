@@ -9,13 +9,13 @@
     <form id="disableBookForm">
         <tbody>
         @foreach($books as $book)
-        <tr>
+        <tr id="book_{{$book->id}}">
             <td>{{$book->title}}</td>
             <td>{{$book->author}}</td>
-            <td><input type="checkbox" autocomplete="off" {{ $book->isEnabled ? "checked" : ""  }}></td>
+            <td><input id="bookEnabled_{{$book->id}}" type="checkbox" autocomplete="off" {{ $book->isEnabled ? "checked" : ""  }}></td>
         </tr>
         @endforeach
         </tbody>
     </form>
 </table>
-<button type="button" class="btn btn-primary" type="Submit" id="saveChanges" onclick="window.disableBook()">Save changes</button>
+<button type="button" class="btn btn-primary" type="Submit" id="saveChanges" onclick="disableBooks()">Save changes</button>
