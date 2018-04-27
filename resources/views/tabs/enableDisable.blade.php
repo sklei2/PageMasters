@@ -3,7 +3,7 @@
     <tr>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
-        <th scope="col">Disabled</th>
+        <th scope="col">Enabled</th>
     </tr>
     </thead>
     <form id="disableBookForm">
@@ -12,7 +12,7 @@
         <tr>
             <td>{{$book->title}}</td>
             <td>{{$book->author}}</td>
-            <td><input type="checkbox" autocomplete="off"></td>
+            <td><input type="checkbox" autocomplete="off" {{ $book->isEnabled ? "checked" : ""  }}></td>
         </tr>
         @endforeach
         </tbody>
