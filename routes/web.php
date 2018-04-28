@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'Auth\\LoginController@GetLogin');
+Route::get('/', 'Auth\\LoginController@GetLoginPage');
+Route::get('logout', 'Auth\\LoginController@logout');
 
 // Individual Book Page Route
 Route::get('/book/{id}', 'BookController@show');
