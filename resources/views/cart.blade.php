@@ -54,7 +54,7 @@
                             <div class="modal-body">
                                 <label for="quantitySelect">How many would you like to remove from your cart?</label>
                                 <select class="form-control" id="quantitySelect" onchange="setQuantity(this.value)">
-                                    @for ($i = 0; $i <= $book->book_quantity; $i++)
+                                    @for ($i = 1; $i <= $book->book_quantity; $i++)
                                     <option>{{$i}}</option>
                                     @endfor
                                 </select>
