@@ -28,6 +28,6 @@ class PreferencesController extends Controller
         $resCourses = $this->router->dispatch($requestCourses);
         $decodedBooks = json_decode($resBooks->content());
         $decodedCourses = json_decode($resCourses->content());
-        return view('preferences', ['books'=>  $decodedBooks, 'courses'=>$decodedCourses]);
+        return view('preferences', ['books'=>  $decodedBooks, 'courses'=>$decodedCourses, 'user'=>auth()->user()]);
     }
 }
