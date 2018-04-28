@@ -13,6 +13,6 @@ class Instructor extends Model
     }
 
     public function user() {
-		return $this->belongsToMany('App\Models\User', 'instructor_user', 'instructor_id', 'user_id');
+		return $this->belongsToMany('App\User', 'instructor_user', 'instructor_id', 'user_id');
 	}
 }

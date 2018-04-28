@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Course;
 use App\Models\Instructor;
-use App\Models\User;
+use App\User;
 
 class InstructorTableSeeder extends Seeder
 {

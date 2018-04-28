@@ -53,6 +53,9 @@
             </tbody>
         </table>
         <div>
+            {{$user}}
+        </div>
+        <div>
             <div style="float:left">Total: ${{$totalCost}}</div>
             <button type="button" class="btn btn-default" style="float:right">Purchase</button>
         </div>

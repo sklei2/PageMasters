@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Book;
-use App\Models\User;
+use App\User;
 
 class StudentTableSeeder extends Seeder
 {

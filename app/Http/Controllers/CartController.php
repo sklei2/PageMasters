@@ -21,7 +21,7 @@ class CartController extends Controller
         // $this->middleware('auth');
     }
 
-    public function getCart() {
+    public function getCart() {    
         $request = Request::create('/api/carts/2', 'GET');
         $res = $this->router->dispatch($request);
         $decoded = json_decode($res->content());
