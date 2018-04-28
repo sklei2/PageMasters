@@ -219,6 +219,6 @@ Route::delete(
 
 //Currency Conversion route
 Route::get(
-    'exchange',
+    'exchange/',
     'ApiControllers\ExchangeRateController@get'
 );

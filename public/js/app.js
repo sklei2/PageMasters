@@ -765,32 +765,49 @@ __webpack_require__(35);
 __webpack_require__(36);
 
 window.exchangeRates = function () {
-    var url = "/api/exchange";
-    $.ajax({
-        url: url,
-        type: 'GET',
-        //who needs error handling
-        success: function success(res) {
-            var rates = res.rates;
-            for (var property in rates) {
-                if (rates.hasOwnProperty(property)) {
-                    var listItem = "<li><a onClick='window.changeCurrency(this)' id='" + property + "'>" + property + "</a></li>";
-                    $("#currencyList").append(listItem);
-                    localStorage.setItem(property, rates[property]);
-                }
-            }
-        }
-    });
+    var baseCountry = $("#currencyList").val();
+    console.log(baseCountry);
+    // $.ajax({
+    //     url: url,
+    //     type:'GET',
+    //     // who needs error handling
+    //     success:function(res){
+    //         var rates = res.rates;
+    //         for (var property in rates) {
+    //             if (rates.hasOwnProperty(property)) {
+    //                 var listItem = "<li><a onClick='window.changeCurrency(this)' id='"+property+"'>"+ property +"</a></li>";
+    //                 $("#currencyList").append(listItem);
+    //                 localStorage.setItem(property, rates[property]);
+    //             }
+    //         }
+    //     }
+    // });
 };
 
 window.changeCurrency = function (link) {
-    $('#currencyDropdown').text("Price (" + link.id + ")");
-    $('#currencyDropdown').addClass("disabled").prop('onclick', null).off('click');
-    $('.price').each(function (i, elem) {
-        var $elem = $(elem);
-        var currPrice = $elem.text();
-        var newPrice = Math.round(currPrice.replace('$', '') * localStorage.getItem(link.id) * 100) / 100;
-        $elem.text(newPrice);
+
+    var baseCurrency = $('#currCurrencyCode').text().split(/[()]+/)[1];
+    var url = "/api/exchange/";
+    var newCurrency = link.id;
+    $('#currCurrencyCode').text("Price (" + link.id + ")");
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        // who needs error handling
+        success: function success(res) {
+            var rates = res.rates;
+            var newConversionRate = rates[newCurrency];
+            var oldConversationRate = rates[baseCurrency];
+            $('.price').each(function (i, elem) {
+                var $elem = $(elem);
+                var currPrice = $elem.text();
+                // the dumb external API we're using doesn't allow you to change the base conversion
+                // unless you pay for it, so we're doing some math to get accurate conversions.
+                var newPrice = (currPrice.replace('$', '') / oldConversationRate * newConversionRate).toFixed(2);
+                $elem.text(newPrice);
+            });
+        }
     });
 };
 
@@ -31851,8 +31868,6 @@ module.exports = function spread(callback) {
 /***/ }),
 /* 35 */
 /***/ (function(module, exports) {
-
-
 
 window.addCourse = function () {
     $.ajax({
