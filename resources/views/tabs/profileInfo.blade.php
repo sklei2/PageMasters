@@ -1,12 +1,8 @@
-@php
-    $name = "Elvis";
-    $email = "testemail@test.com";
-@endphp
 <div>
     <b class="infoLabel">Name:</b>
-    <span class="infoContent">{{$name}}</span>
+    <span class="infoContent">{{$user->name}}</span>
     </br>
     <b class="infoLabel">Email:</b>
-    <span class="infoContent">{{$email}}<span>
+    <span class="infoContent">{{$user->email}}<span>
 
 </div>
