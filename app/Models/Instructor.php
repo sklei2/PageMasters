@@ -11,4 +11,8 @@ class Instructor extends Model
     public function courses() {
     	return $this->belongsToMany('App\Models\Course', 'instructor_course', 'instructor_id', 'course_id');
     }
+
+    public function user() {
+		return $this->belongsToMany('App\Models\User', 'instructor_user', 'instructor_id', 'user_id');
+	}
 }

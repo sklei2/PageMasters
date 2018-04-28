@@ -28,6 +28,25 @@ class User extends Authenticatable
     ];
 
     public function role() {
-        return $this->hasOne('App\Models\Role');
+        return $this->belongsToMany('App\Models\Role');
+    }
+
+    public function isRole($roleName) {
+        foreach ($this->role()->get() as $role) {
+            if ($role->name == $roleName) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function roleInfo() {
+        if ($this->isRole('student')) {
+            return $this->belongsToMany('App\Models\Student', 'student_user', 'student_id', 'user_id');
+        } else if ($this->isRole('instructor')) {
+            return $this->belongsToMany('App\Models\Instructor', 'instructor_user', 'instructor_id', 'user_id');
+        } else {
+            return $this->belongsToMany('App\Models\Admin', 'admin_user', 'admin_id', 'user_id');
+        }
     }
 }

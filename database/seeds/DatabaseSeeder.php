@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Create all of our users and their roles first
+        $this->call('RoleTableSeeder');
+        $this->call('UsersTableSeeder');
+
         $this->call('AdminTableSeeder');
         // Make sure the Book Seeder is done before almost all
         // other seeds, since it is relied upon

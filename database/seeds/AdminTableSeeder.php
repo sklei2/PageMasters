@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Admin;
+use App\Models\User;
 
 class AdminTableSeeder extends Seeder
 {
@@ -14,7 +15,9 @@ class AdminTableSeeder extends Seeder
     {
         DB::table('admins')->delete();
 
-        Admin::create(['name' => 'Example 1']);
-        Admin::create(['name' => 'Example 2']);
+        $admin = Admin::create(['name' => 'Boss Man']);
+        $admin->user()->attach(
+            User::where('name', '=', 'Boss Man') ->first()
+        );
     }
 }
