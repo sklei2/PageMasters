@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(36);
+module.exports = __webpack_require__(35);
 
 
 /***/ }),
@@ -761,7 +761,6 @@ module.exports = __webpack_require__(36);
  */
 
 __webpack_require__(9);
-__webpack_require__(35);
 
 window.changeCurrency = function (link) {
 
@@ -31848,28 +31847,6 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 35 */
-/***/ (function(module, exports) {
-
-window.addCourse = function () {
-    $.ajax({
-        url: '/api/courses',
-        type: 'post',
-        data: $('#addCourseForm').serialize(),
-        success: function success() {
-            window.location.href = "/preferences#manageCourses";
-        }
-    });
-};
-
-window.switchTabs = function switchTabs(id) {
-    $(".tab-pane").removeClass("active in");
-    $("li").removeClass("active");
-    $("li#" + id).addClass("active");
-    $("div#" + id).addClass("active in");
-};
-
-/***/ }),
-/* 36 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

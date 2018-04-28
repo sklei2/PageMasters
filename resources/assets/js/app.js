@@ -6,7 +6,6 @@
  */
 
 require('./bootstrap');
-require('./preferences');
 
 window.changeCurrency = function(link){
 
