@@ -28,6 +28,26 @@
                     <a href="/coverage">Coverage Report</a>
                 </li>
             </ul>
+            
+                @if (Auth::guest())
+                <a href="{{ route('login') }}" class="nav navbar-right">
+                    Login
+                </a>
+                @else
+                <div class="nav navbar-right dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="profile-dropdown" data-toggle="dropdown"> 
+                        {{Auth::user()->name}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"> Profile </a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"> 
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                @endif
+                
+            
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
