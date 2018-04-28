@@ -24,8 +24,8 @@
                 <br/>
                 <br/>
                 <div class="container" style="text-align: center">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="example@email.com" name="email" required>
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
