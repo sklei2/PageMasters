@@ -22,14 +22,16 @@ class AdminController extends Controller
     }
 
     public function show() {
-        $requestBooks = Request::create('/api/books', 'GET');
-        $requestCourses = Request::create('/api/courses','GET');
-        $resBooks = $this->router->dispatch($requestBooks);
-        $resCourses = $this->router->dispatch($requestCourses);
-        $decodedBooks = json_decode($resBooks->content());
-        $decodedCourses = json_decode($resCourses->content());
-        return view('admin', ['books'=>  $decodedBooks, 'courses'=>$decodedCourses]);
+        if (auth()->check()) {
+            $requestBooks = Request::create('/api/books', 'GET');
+            $requestCourses = Request::create('/api/courses','GET');
+            $resBooks = $this->router->dispatch($requestBooks);
+            $resCourses = $this->router->dispatch($requestCourses);
+            $decodedBooks = json_decode($resBooks->content());
+            $decodedCourses = json_decode($resCourses->content());
+            return view('admin', ['books'=>  $decodedBooks, 'courses'=>$decodedCourses]);    
+        } else {
+            return redirect('login');
+        }        
     }
-
-
 }
