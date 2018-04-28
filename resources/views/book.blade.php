@@ -17,8 +17,8 @@
                 <span>{{ $author }}</span><br>
                 <label>ISBN:</label>
                 <span>{{ $isbn }}</span><br>
-                {{--  <label>Book Rating:</label>
-                <span>{{ $rating }}</span><br>  --}}
+                <label>Book Rating:</label>
+                <span>{{ $averageRating or "There are no ratings for this book yet" }}</span><br>
                 <label>Price:</label>
                 <span>{{ $price }}</span><br>
                 <button type="button" class="btn btn-primary">Add To Cart</button>

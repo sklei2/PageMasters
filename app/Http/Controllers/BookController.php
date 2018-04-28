@@ -50,7 +50,14 @@ class BookController extends Controller
         $request = Request::create('/api/reviews/book/'. (string)$id, 'GET');
         $response = $this->router->dispatch($request);
         $book['reviews'] = json_decode($response->getContent(), true);
-
+        if ($book['reviews']) {
+            $averageRating = 0;
+            foreach ($book['reviews'] as $review) {
+                $averageRating += $review['rating'];
+            }
+            $averageRating = $averageRating / count($book['reviews']);
+            $book['averageRating'] = $averageRating;
+        }
         return view('book', $book);
     }
 }
