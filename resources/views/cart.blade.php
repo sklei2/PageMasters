@@ -38,12 +38,6 @@
                         </button>
                     </td>
                 </tr>
-                <script>
-                    removalQuantity = 1;
-                    function setQuantity(value){
-                        removalQuantity = value;
-                    };
-                </script>
                 <div class="modal fade" id="deleteModal{{$book->id}}" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
