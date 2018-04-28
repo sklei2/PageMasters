@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-    @yield('css');
+    @yield('css')
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
