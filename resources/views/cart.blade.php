@@ -39,6 +39,7 @@
                     </td>
                 </tr>
                 <script>
+                    removalQuantity = 1;
                     function setQuantity(value){
                         removalQuantity = value;
                     };
