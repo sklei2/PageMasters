@@ -13,13 +13,6 @@
                 <th scope="col">Author</th>
                 <th scope="col">Rating</th>
                 <th scope="col">
-<!--                    <span class="dropdown">-->
-<!--                        <button id="currencyDropdown" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="window.exchangeRates()">-->
-<!--                            Price (USD)<span class="caret"></span>-->
-<!--                        </button>-->
-<!--                        <ul class="dropdown-menu" id="currencyList">-->
-<!--                        </ul>-->
-<!--                    </span>-->
                     @include('shared.currencyDropdown')
                 </th>
                 <th scope="col">Add to Cart</th>

@@ -7,27 +7,6 @@
 
 require('./bootstrap');
 require('./preferences');
-require('./admin');
-
-window.exchangeRates = function(){
-    var baseCountry = $("#currencyList").val();
-    console.log(baseCountry);
-    // $.ajax({
-    //     url: url,
-    //     type:'GET',
-    //     // who needs error handling
-    //     success:function(res){
-    //         var rates = res.rates;
-    //         for (var property in rates) {
-    //             if (rates.hasOwnProperty(property)) {
-    //                 var listItem = "<li><a onClick='window.changeCurrency(this)' id='"+property+"'>"+ property +"</a></li>";
-    //                 $("#currencyList").append(listItem);
-    //                 localStorage.setItem(property, rates[property]);
-    //             }
-    //         }
-    //     }
-    // });
-};
 
 window.changeCurrency = function(link){
 

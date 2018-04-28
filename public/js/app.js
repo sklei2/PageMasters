@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(37);
+module.exports = __webpack_require__(36);
 
 
 /***/ }),
@@ -762,27 +762,6 @@ module.exports = __webpack_require__(37);
 
 __webpack_require__(9);
 __webpack_require__(35);
-__webpack_require__(36);
-
-window.exchangeRates = function () {
-    var baseCountry = $("#currencyList").val();
-    console.log(baseCountry);
-    // $.ajax({
-    //     url: url,
-    //     type:'GET',
-    //     // who needs error handling
-    //     success:function(res){
-    //         var rates = res.rates;
-    //         for (var property in rates) {
-    //             if (rates.hasOwnProperty(property)) {
-    //                 var listItem = "<li><a onClick='window.changeCurrency(this)' id='"+property+"'>"+ property +"</a></li>";
-    //                 $("#currencyList").append(listItem);
-    //                 localStorage.setItem(property, rates[property]);
-    //             }
-    //         }
-    //     }
-    // });
-};
 
 window.changeCurrency = function (link) {
 
@@ -31889,25 +31868,6 @@ window.switchTabs = function switchTabs(id) {
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports) {
-
-window.disableBook = function () {
-    //put request goes here
-};
-
-window.addBook = function () {
-    //post request goes here
-};
-
-$(function () {
-    var $select = $(".quantity");
-    for (i = 1; i <= 100; i++) {
-        $select.append($('<option></option>').val(i).html(i));
-    }
-});
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
