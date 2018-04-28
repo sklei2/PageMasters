@@ -1,4 +1,4 @@
-window.addCourse = function () {
+function addCourse() {
     $.ajax({
         url: '/api/courses',
         type: 'post',
@@ -9,7 +9,7 @@ window.addCourse = function () {
     });
 };
 
-window.switchTabs = function switchTabs(id) {
+function switchTabs(id) {
     $(".tab-pane").removeClass("active in");
     $("li").removeClass("active");
     $("li#" + id).addClass("active");

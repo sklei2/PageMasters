@@ -2,6 +2,11 @@
 
 @section('title', 'All Books')
 @section('mainDiv', 'bookPage')
+
+@section('javascript')
+<script type="text/javascript" src="{{ asset('js/books.js') }}"></script>
+@stop
+
 @section('content')
 
     <div id="bookContainer" class="container-fluid" style="overflow-y: auto; padding-top:22px; width:100%">
@@ -20,6 +25,9 @@
             </thead>
             <tbody>
                 @foreach ($response as $book)
+                <script>
+                    var book = {!! json_encode($book) !!};
+                </script>
                 <tr>
                     <td><a href="{{url('/book/' . $book->id)}}"><img style="max-height: 150px" src="{{$book->bookImgSrc}}"/></a></td>
                     <td><a href="{{url('/book/' . $book->id)}}">{{$book->title}}</a></td>
@@ -27,7 +35,7 @@
                     <td>5 Stars</td>
                     <td class="price">{{$book->price}}</td>
                     <td>
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" onclick="addToCart({{$book->id}})">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </button>
                     </td>

@@ -2,6 +2,10 @@
 
 @section('title', '{{ $title }}')
 
+@section('javascript')
+<script type="text/javascript" src="{{ asset('js/preferences.js') }}"></script>
+@stop
+
 @section('content')
 <span id="userInfo">
     <p>Name: Elvis</p>
