@@ -12,6 +12,7 @@ class Book extends Model
     	'price',
     	'isbn',
     	'isEnabled',
-    	'bookImgSrc'
+    	'bookImgSrc',
+        'averageRating'
     ];
 }

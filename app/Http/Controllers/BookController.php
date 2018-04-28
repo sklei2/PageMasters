@@ -31,6 +31,17 @@ class BookController extends Controller
         $request = Request::create('/api/books', 'GET');
         $res = $this->router->dispatch($request);
         $decoded = json_decode($res->content());
+
+        // get the average of each book on the fly rather than storing
+        // the average in the DB.
+        foreach($decoded as $book){
+            $count = \DB::table('reviews')
+                ->selectRaw('AVG(rating) as average_rating')
+                ->where('book_id', $book->id)
+                ->get();
+            $avg = $count[0]->average_rating;
+            $book->averageRating = $avg;
+        }
         return view('books', ['response'=>  $decoded]);
     }
 
