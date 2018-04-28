@@ -10,8 +10,10 @@ require('./preferences');
 
 window.changeCurrency = function(link){
 
+    // get the currency type we're converting from, from the dropdown display
     var baseCurrency = $('#currCurrencyCode').text().split(/[()]+/)[1];
     var url = "/api/exchange/";
+
     var newCurrency = link.id;
     $('#currCurrencyCode').text("Price ("+link.id+")");
 
