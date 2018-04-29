@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Role;
+use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -39,6 +41,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function GetRegisterPage() {
+        return view('auth/register');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -62,10 +68,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $role = Role::where('name', '=', 'student')->first();
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]); 
+
+        $user->role()->attach($role);
+
+        $name = $data['name'];
+        $keywords = preg_split("/\s+/", $name);
+
+        $firstName = $keywords[0];
+        $lastName = $keywords[count($keywords) - 1];
+
+        $student = Student::create([
+            'fName' => $firstName,
+            'lName' => $lastName,
+            'account' => 0.00
         ]);
+
+        $student->user()->attach($user);
+
+        return $user;
     }
 }
