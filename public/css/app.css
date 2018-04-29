@@ -8499,3 +8499,20 @@ body {
   margin-top: 8px;
 }
 
+#individualBookPage {
+  height: 100%;
+}
+
+#bookPageRightHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+

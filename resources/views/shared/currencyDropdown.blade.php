@@ -1,4 +1,4 @@
-<span class="dropdown">
+<span class="dropdown" id="currencyDropdownContainer">
     <button id="currencyDropdown" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span id="currCurrencyCode">Price (USD)</span><span class="caret"></span>
     </button>
