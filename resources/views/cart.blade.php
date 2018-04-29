@@ -19,7 +19,7 @@
                 <th scope="col">Cover</th>
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
-                <th scope="col">Price(USD)</th>
+                <th scope="col">@include('shared.currencyDropdown')</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Remove From Cart</th>
             </tr>
@@ -30,7 +30,7 @@
                     <td><img style="max-height: 150px" src="{{$book->bookImgSrc}}"/></td>
                     <td>{{$book->title}}</td>
                     <td>{{$book->author}}</td>
-                    <td>${{$book->price}}</td>
+                    <td class="price">${{$book->price}}</td>
                     <td>{{$book->book_quantity}}</td>
                     <td style="text-align: center">
                         <button type="button" class="btn btn-default" onclick="setQuantity(1)" data-toggle="modal" data-target="#deleteModal{{$book->id}}">
