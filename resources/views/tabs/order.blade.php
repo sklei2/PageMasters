@@ -17,4 +17,4 @@
         </tbody>
     </form>
 </table>
-<button type="button" class="btn btn-primary" type="Submit" id="saveChanges" onclick="window.orderBooks()">Order</button>
+<button type="button" class="btn btn-primary" type="Submit" id="saveChanges" onclick="orderBooks()">Order</button>
