@@ -14,7 +14,7 @@ class AddInStockToBooks extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->integer('inStock');
+            $table->integer('in_stock');
         });
     }
 

@@ -9,6 +9,7 @@
 @section('javascript')
 <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/preferences.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/order.js') }}"></script>
 @stop
 
 @section('content')
