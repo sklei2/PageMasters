@@ -8477,11 +8477,23 @@ body {
     margin-bottom: 10px;
     padding-bottom: 5px;
   }
+
+  #mainNavbar {
+    overflow-y: auto;
+  }
+
+  .bookScroll {
+    overflow-y: auto;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .bookHeight {
     max-height: 150px;
+  }
+
+  .bookReviews {
+    overflow-y: auto;
   }
 
   .bottomBorder {
@@ -8490,6 +8502,12 @@ body {
     border-width: 0 0 1px 0;
     margin-bottom: 10px;
     padding-bottom: 10px;
+  }
+
+  .bookFlex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 

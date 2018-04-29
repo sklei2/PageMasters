@@ -13,13 +13,13 @@
 @stop
 
 @section('content')
-    <div class="container-fluid" style="height:90%">
-        <div class="row bottomBorder" style="display: flex">
-            <div class="col-sm-10">
+    <div class="container-fluid bookScroll" style="height:90%">
+        <div class="row bottomBorder bookFlex">
+            <div class="col-sm-10 col-xs-12">
                 <h1>{{ $title }}</h1>
-                <div style="font-size: 20px; padding-left: 15px;">By: {{$author}} -- {{ $averageRating or "There are no ratings for this book yet" }}</div>
+                <div style="font-size: 20px; padding-left: 15px;">By: {{$author}} -- {{ $averageRating ? $averageRating." Stars" : "There are no ratings for this book yet" }}</div>
             </div>
-            <div id="bookPageRightHeader" class="col-sm-2">
+            <div id="bookPageRightHeader" class="col-sm-2 col-xs-12">
                 <div>
                     @include('shared.currencyDropdown')
                     <span class="price" style="font-size: 18px">{{ $price }}</span><br>
@@ -28,10 +28,10 @@
             </div>
         </div>
         <div class="row" style="height:85%">
-            <div class="col-sm-4">
-                <img src={{ $bookImgSrc }} />
+            <div class="col-sm-4 col-xs-12" style="text-align:center">
+                <img style="max-height:400px"src={{ $bookImgSrc }} />
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 col-xs-12 bookReviews">
                 <h3>Here is what other's have said about <b>{{$title}}</b></h3>
                 <ul class="list-group">
                     @foreach ($reviews as $review)

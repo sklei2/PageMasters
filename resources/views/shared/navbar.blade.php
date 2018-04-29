@@ -1,5 +1,5 @@
 <!doctype html>
-<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0; overflow-y:auto">
+<nav id="mainNavbar" class="navbar navbar-default navbar-static-top" style="margin-bottom: 0;">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
