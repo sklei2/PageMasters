@@ -17,11 +17,6 @@
         <div id="tabs">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" id="orderHistory" onclick="switchTabs(this.id)">
-                <a href="#orderHistory" class="myTabs" aria-controls="orderHistory" role="tab">
-                    Order History
-                </a>
-            </li>
             <li role="presentation" id="manageCourses" class="active" onclick="switchTabs(this.id)">
                 <a href="#manageCourses" class="myTabs" aria-controls="manageCourses" role="tab">
                     Manage Courses
@@ -47,9 +42,6 @@
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade" id="orderHistory">
-                @include('tabs.orderHistory')
-            </div>
             <div role="tabpanel" class="tab-pane fade" id="manageCourses">
                 @include('tabs.manageCourses')
             </div>
