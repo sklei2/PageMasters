@@ -7,10 +7,6 @@
 @stop
 
 @section('content')
-<span id="userInfo">
-   <p> <strong>Name: </strong> {{Auth::user()->name}} </p>
-   <p> <strong>Email: </strong> {{Auth::user()->email}}</p>
-</span>
 <div class="position-ref full-height">
     <div class="content flex-center">
         <div id="tabs">
