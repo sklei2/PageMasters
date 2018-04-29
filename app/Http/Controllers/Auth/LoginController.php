@@ -71,15 +71,15 @@ class LoginController extends Controller
             $user = User::where('name', '=', $result['name'])->get();
 
             if ($user->isNotEmpty()) {
+                
                 $creds = array(
                     'email' => $result['email'],
                     'password' => $result['id']
                 );
-                if (Auth::attempt($creds)){
-                    return redirect()->intended('/books');
-                }
+                Auth::login($user->pop());
+                return redirect('/books');
             } else {
-                app('App\Http\Controllers\Auth\RegisterController')->create(
+                $nuser = app('App\Http\Controllers\Auth\RegisterController')->create(
                     array( 
                         'name' => $result['name'], 
                         'password' => $result['id'],
@@ -90,9 +90,8 @@ class LoginController extends Controller
                     'email' => $result['email'],
                     'password' => $result['id']
                 );
-                if (Auth::attempt($creds)){
-                    return redirect()->intended('/books');
-                }
+                Auth::login($nuser);
+                return redirect('/books');
             }
         }
         // if not ask for permission first
