@@ -28,7 +28,7 @@ class BookAPITest extends TestCase
      */
     public function testGetBookByIDTest()
     {
-        $response = $this->get('/api/books/1');
+        $response = $this->get('/api/books/2');
 
         $response->assertStatus(200);
     }
@@ -59,10 +59,11 @@ class BookAPITest extends TestCase
             'price' => 10.0,
             'isbn' => 'TestBookISBN',
             'isEnabled' => true,
-            'bookImgSrc' => 'TestBookIMGSRC'
+            'bookImgSrc' => 'TestBookIMGSRC',
+            'in_stock' => '15'
         );
 
-        $response = $this->post('/api/books/create', $book_args);;
+        $response = $this->post('/api/books', $book_args);;
 
         $response->assertStatus(200);
 
@@ -78,7 +79,7 @@ class BookAPITest extends TestCase
      */
     public function testUpdateBookByIDTest($test_book_id)
     {
-        $response = $this->put('/api/books/update/'. $test_book_id, ['title' => 'updatedtestbooktitle']);
+        $response = $this->put('/api/books/'. $test_book_id, ['title' => 'updatedtestbooktitle']);
 
         $response->assertStatus(200);
     }
@@ -90,7 +91,7 @@ class BookAPITest extends TestCase
      */
     public function testUpdateBookByIDDNETest()
     {
-        $response = $this->put('/api/books/update/0', ['title' => 'updatedtestbooktitle']);
+        $response = $this->put('/api/books/0', ['title' => 'updatedtestbooktitle']);
 
         $response->assertStatus(500);
     }
@@ -102,7 +103,7 @@ class BookAPITest extends TestCase
      */
     public function testDeleteBookByIDTest($test_book_id)
     {
-        $response = $this->delete('/api/books/delete/'. $test_book_id);
+        $response = $this->delete('/api/books/'. $test_book_id);
 
         $response->assertStatus(200);
     }
