@@ -9,6 +9,27 @@ function addCourse() {
     });
 };
 
+function addToAccount(value, userId) {
+    var currentVal = parseFloat(document.getElementById("currentBalance").innerText.substring(1));
+    var newValue = currentVal + value;
+
+    $.ajax({
+        url: '/api/students/update/' + userId,
+        data: {'account': newValue},
+        type: 'PUT',
+        success: function(data) {
+            $('#addAccount').modal('hide');
+            document.getElementById('currentBalance').innerText = '$' + newValue.toFixed(2);
+        },
+        error: function(data) {
+            // yell at the student
+            console.log(data);            
+        }
+    })    
+
+    
+};
+
 function switchTabs(id) {
     $(".tab-pane").removeClass("active in");
     $("li").removeClass("active");
