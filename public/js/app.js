@@ -792,6 +792,10 @@ window.changeCurrency = function (link) {
     });
 };
 
+window.changeRating = function (link) {
+    $('#currRating')[0].innerHTML = link.innerHTML;
+};
+
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {

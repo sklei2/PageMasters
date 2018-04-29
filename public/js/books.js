@@ -24,3 +24,24 @@ addQuantity = 1;
 function setQuantity(value){
     addQuantity = value;
 };
+
+function postReview(SID, bookID, rating, textReview) {
+    var realRating = rating.split(" ")[0];
+    var body = {
+        'student_id': SID,
+        'book_id': bookID,
+        'rating': realRating,
+        'textReview': textReview
+    }
+
+    var url = "/api/reviews/create";
+    $.ajax({
+        url: url,
+        type:'POST',
+        data: body,
+        success: function(response) {
+            alert("Review posted!");
+            location.reload();
+        }
+    })
+}
