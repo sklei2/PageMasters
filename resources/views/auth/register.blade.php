@@ -14,7 +14,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
     </head>
-    <body>
+    <body style="display:flex; align-items:center;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
