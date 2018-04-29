@@ -75,6 +75,13 @@
                                     </div>                                    
                                 </div>
                             </form>
+                            <div>
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="button" class="btn btn-danger" onclick="window.location='{{ url("/loginwithgoogle") }}'" style="margin-right: 15px;">
+                                        Login With Google+
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
