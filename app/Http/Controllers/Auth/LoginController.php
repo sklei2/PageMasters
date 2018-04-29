@@ -40,7 +40,7 @@ class LoginController extends Controller
     }
 
     public function GetLoginPage() {
-        return view('login');
+        return view('auth/login');
     }
 
     public function logout() {
