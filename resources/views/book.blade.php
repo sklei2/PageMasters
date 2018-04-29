@@ -23,8 +23,8 @@
                 <span>{{ $isbn }}</span><br>
                 <label>Book Rating:</label>
                 <span>{{ $averageRating or "There are no ratings for this book yet" }}</span><br>
-                <label>Price:</label>
-                <span>{{ $price }}</span><br>
+                @include('shared.currencyDropdown')
+                <span class="price">{{ $price }}</span><br>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add To Cart</button>
             </div>
         </div>
