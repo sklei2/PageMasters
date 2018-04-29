@@ -1,11 +1,11 @@
-function removeFromCart(book, quantity) {
+function removeFromCart(book, quantity, userId) {
     var body = {
         "book_id" : book,
         "book_quantity" : quantity,
     };
 
     // TODO Change id when users are created.
-    var url = "/api/carts/2/remove/";
+    var url = "/api/carts/"+userId+"/remove/";
 
     $.ajax({
         url: url,

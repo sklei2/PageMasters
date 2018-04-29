@@ -33,11 +33,14 @@
                     <td>${{$book->price}}</td>
                     <td>{{$book->book_quantity}}</td>
                     <td style="text-align: center">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#deleteModal{{$book->id}}">
+                        <button type="button" class="btn btn-default" onclick="setQuantity(1)" data-toggle="modal" data-target="#deleteModal{{$book->id}}">
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
                     </td>
                 </tr>
+                <!-- is it efficient to create a modal for every book on the page,
+                     rather than just passing in the necessary data to the same modal? -->
+                <!-- No, but it sure is easy. -->
                 <div class="modal fade" id="deleteModal{{$book->id}}" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -55,7 +58,7 @@
                                 </select>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" onclick="removeFromCart({{$book->id}}, parseInt(removalQuantity))">Remove From Cart</button>
+                                <button type="button" class="btn btn-default" onclick="removeFromCart({{$book->id}}, parseInt(removalQuantity), {{ Auth::user()->id }})">Remove From Cart</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>

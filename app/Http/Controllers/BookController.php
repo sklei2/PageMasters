@@ -42,6 +42,7 @@ class BookController extends Controller
             $avg = $count[0]->average_rating;
             $book->averageRating = $avg;
         }
+
         return view('books', ['response'=>  $decoded]);
     }
 
@@ -61,14 +62,13 @@ class BookController extends Controller
         $request = Request::create('/api/reviews/book/'. (string)$id, 'GET');
         $response = $this->router->dispatch($request);
         $book['reviews'] = json_decode($response->getContent(), true);
-        if ($book['reviews']) {
-            $averageRating = 0;
-            foreach ($book['reviews'] as $review) {
-                $averageRating += $review['rating'];
-            }
-            $averageRating = $averageRating / count($book['reviews']);
-            $book['averageRating'] = $averageRating;
-        }
+        $count = \DB::table('reviews')
+            ->selectRaw('AVG(rating) as average_rating')
+            ->where('book_id', $book['id'])
+            ->get();
+        $avg = $count[0]->average_rating;
+        $book['averageRating'] = $avg;
+
         return view('book', $book);
     }
 }

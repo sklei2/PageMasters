@@ -4,6 +4,10 @@
 
 @section('mainDiv', 'individualBookPage')
 
+@section('javascript')
+<script type="text/javascript" src="{{ asset('js/books.js') }}"></script>
+@stop
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -21,7 +25,29 @@
                 <span>{{ $averageRating or "There are no ratings for this book yet" }}</span><br>
                 <label>Price:</label>
                 <span>{{ $price }}</span><br>
-                <button type="button" class="btn btn-primary">Add To Cart</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add To Cart</button>
+            </div>
+        </div>
+        <div class="modal fade" id="addModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="quantitySelect">How many would you like to add to your cart?</label>
+                        <input id="quantity" type="number" class="form-control" placeholder="80085" aria-label="Quantity">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                onclick="addToCart({{$id}}, document.getElementById('quantity').value, {{ Auth::user()->id }})">
+                        Add To Cart
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
