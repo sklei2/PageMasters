@@ -37,8 +37,25 @@
             <div class="col-sm-8 col-xs-12 bookReviews">
                 <h3>
                     <b>{{$reviews ? "Here is what other's have said about ".$title : "Be the first to write a review!"}}</b>
-                    <div type="button" data-toggle="modal" data-target="#reviewModal" class="btn btn-primary"
-                         style="max-width: 200px; text-overflow: ellipsis; overflow: hidden;">Review {{$title}}</div>
+                    @php
+                        $hasBook = false;
+                        if (Auth::user()->isRole('student')) {
+                            $books = Auth::user()->roleInfo->first()->books;
+                            if ($books) {
+                                foreach($books as $book) {
+                                    if($id == $book->id) {
+                                        $hasBook = true;
+                                        break;
+                                    }
+                                }
+                            }
+
+                        }
+                    @endphp
+                    @if($hasBook)
+                        <div type="button" data-toggle="modal" data-target="#reviewModal" class="btn btn-primary"
+                             style="max-width: 200px; text-overflow: ellipsis; overflow: hidden;">Review {{$title}}</div>
+                    @endif
                 </h3>
                 <ul class="list-group">
                     @foreach ($reviews as $review)
@@ -105,7 +122,7 @@
                                   placeholder="How was the book?" aria-label="review"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default"
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
                                 onclick="postReview({{ Auth::user()->id }}, {{$id}}, document.getElementById('currRating').innerHTML, document.getElementById('review').value)">
                             Post Review
                         </button>
