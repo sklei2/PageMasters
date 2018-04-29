@@ -8457,3 +8457,80 @@ body {
   display: flex;
 }
 
+@media only screen and (max-width: 768px) {
+  div.d-sm-none {
+    display: none;
+  }
+
+  .bookHeight {
+    max-height: 300px;
+  }
+
+  .alignXS {
+    text-align: center;
+  }
+
+  .bottomBorder {
+    border: grey;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  #mainNavbar {
+    overflow-y: auto;
+  }
+
+  .bookScroll {
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .bookHeight {
+    max-height: 150px;
+  }
+
+  .bookReviews {
+    overflow-y: auto;
+  }
+
+  .bottomBorder {
+    border: grey;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .bookFlex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+#currencyList {
+  max-height: 300px;
+  overflow-y: scroll;
+  margin-top: 8px;
+}
+
+#individualBookPage {
+  height: 100%;
+}
+
+#bookPageRightHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+

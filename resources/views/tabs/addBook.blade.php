@@ -1,4 +1,4 @@
-<form method="POST" action="#" id="addCourseForm">
+<form action="#" id="addBookForm" onsubmit="addBookFormSubmission(event)">
     <div>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         Title:
@@ -10,9 +10,12 @@
         Price:
         <input class="form-control" type="text" required name="price" placeholder="Price">
         Cover Image URL:
-        <input class="form-control" type="text" required name="cover" placeholder="">
+        <input id="imageUrlUpload" class="form-control" type="text" required name="bookImgSrc" placeholder="" onChange="window.coverImgChange(event)">
     </div>
     <div>
-        <button type="button" class="btn btn-primary" type="Submit" id="formSubmit" onclick="window.addBook()">Add book</button>
+        <button class="btn btn-primary" type="submit" id="formSubmit">Add book</button>
     </div>
-</form>
+</form
+<div id="preview">
+    <img id="bookCoverPreview" src="" onError="coverImageOnError(event)" onLoad="coverImageOnLoad(event)"/>
+</div>

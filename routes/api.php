@@ -41,7 +41,7 @@ Route::delete(
 
 // Books Routes
 Route::post(
-    'books/create/',
+    'books',
     'ApiControllers\BookController@create'
 );
 
@@ -55,11 +55,11 @@ Route::get(
     'ApiControllers\BookController@get'
 );
 Route::put(
-    'books/update/{id}',
+    'books/{id}',
     'ApiControllers\BookController@update'
 );
 Route::delete(
-    'books/delete/{id}',
+    'books/{id}',
     'ApiControllers\BookController@delete'
 );
 
@@ -219,6 +219,6 @@ Route::delete(
 
 //Currency Conversion route
 Route::get(
-    'exchange',
+    'exchange/',
     'ApiControllers\ExchangeRateController@get'
 );

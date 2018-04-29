@@ -18,9 +18,10 @@ class CreateBooksTable extends Migration
             $table->text('title');
             $table->string('author');
             $table->string('isbn');
-            $table->decimal('price', 13, 4);
+            $table->decimal('price', 13, 2);
             $table->boolean('isEnabled');
             $table->text('bookImgSrc');
+            $table->integer('in_stock');
             $table->timestamps();
         });
     }

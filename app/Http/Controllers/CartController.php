@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cart;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -22,7 +23,9 @@ class CartController extends Controller
     }
 
     public function getCart() {
-        $request = Request::create('/api/carts/2', 'GET');
+        $user = Auth::user()->id;
+        error_log($user);
+        $request = Request::create('/api/carts/' . $user, 'GET');
         $res = $this->router->dispatch($request);
         $decoded = json_decode($res->content());
         return view('cart', ['response'=>  $decoded]);

@@ -746,7 +746,8 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(37);
+__webpack_require__(35);
+module.exports = __webpack_require__(36);
 
 
 /***/ }),
@@ -761,36 +762,33 @@ module.exports = __webpack_require__(37);
  */
 
 __webpack_require__(9);
-__webpack_require__(35);
-__webpack_require__(36);
 
-window.exchangeRates = function () {
-    var url = "/api/exchange";
+window.changeCurrency = function (link) {
+
+    // get the currency type we're converting from, from the dropdown display
+    var baseCurrency = $('#currCurrencyCode').text().split(/[()]+/)[1];
+    var url = "/api/exchange/";
+
+    var newCurrency = link.id;
+    $('#currCurrencyCode').text("Price (" + link.id + ")");
+
     $.ajax({
         url: url,
         type: 'GET',
-        //who needs error handling
+        // who needs error handling
         success: function success(res) {
             var rates = res.rates;
-            for (var property in rates) {
-                if (rates.hasOwnProperty(property)) {
-                    var listItem = "<li><a onClick='window.changeCurrency(this)' id='" + property + "'>" + property + "</a></li>";
-                    $("#currencyList").append(listItem);
-                    localStorage.setItem(property, rates[property]);
-                }
-            }
+            var newConversionRate = rates[newCurrency];
+            var oldConversationRate = rates[baseCurrency];
+            $('.price').each(function (i, elem) {
+                var $elem = $(elem);
+                var currPrice = $elem.text();
+                // the dumb external API we're using doesn't allow you to change the base conversion
+                // unless you pay for it, so we're doing some math to get accurate conversions.
+                var newPrice = (currPrice.replace('$', '') / oldConversationRate * newConversionRate).toFixed(2);
+                $elem.text(newPrice);
+            });
         }
-    });
-};
-
-window.changeCurrency = function (link) {
-    $('#currencyDropdown').text("Price (" + link.id + ")");
-    $('#currencyDropdown').addClass("disabled").prop('onclick', null).off('click');
-    $('.price').each(function (i, elem) {
-        var $elem = $(elem);
-        var currPrice = $elem.text();
-        var newPrice = Math.round(currPrice.replace('$', '') * localStorage.getItem(link.id) * 100) / 100;
-        $elem.text(newPrice);
     });
 };
 
@@ -31852,47 +31850,10 @@ module.exports = function spread(callback) {
 /* 35 */
 /***/ (function(module, exports) {
 
-
-
-window.addCourse = function () {
-    $.ajax({
-        url: '/api/courses',
-        type: 'post',
-        data: $('#addCourseForm').serialize(),
-        success: function success() {
-            window.location.href = "/preferences#manageCourses";
-        }
-    });
-};
-
-window.switchTabs = function switchTabs(id) {
-    $(".tab-pane").removeClass("active in");
-    $("li").removeClass("active");
-    $("li#" + id).addClass("active");
-    $("div#" + id).addClass("active in");
-};
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports) {
-
-window.disableBook = function () {
-    //put request goes here
-};
-
-window.addBook = function () {
-    //post request goes here
-};
-
-$(function () {
-    var $select = $(".quantity");
-    for (i = 1; i <= 100; i++) {
-        $select.append($('<option></option>').val(i).html(i));
-    }
-});
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

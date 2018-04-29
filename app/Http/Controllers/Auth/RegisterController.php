@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Role;
+use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/books';
 
     /**
      * Create a new controller instance.
@@ -37,6 +39,10 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function GetRegisterPage() {
+        return view('auth/register');
     }
 
     /**
@@ -60,12 +66,32 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    public function create(array $data)
     {
-        return User::create([
+        $role = Role::where('name', '=', 'student')->first();
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]); 
+
+        $user->role()->attach($role);
+
+        $name = $data['name'];
+        $keywords = preg_split("/\s+/", $name);
+
+        $firstName = $keywords[0];
+        $lastName = $keywords[count($keywords) - 1];
+
+        $student = Student::create([
+            'fName' => $firstName,
+            'lName' => $lastName,
+            'account' => 0.00
         ]);
+
+        $student->user()->attach($user);
+
+        return $user;
     }
 }

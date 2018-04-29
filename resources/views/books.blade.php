@@ -2,44 +2,61 @@
 
 @section('title', 'All Books')
 @section('mainDiv', 'bookPage')
+
+@section('javascript')
+<script type="text/javascript" src="{{ asset('js/books.js') }}"></script>
+@stop
+
 @section('content')
 
-    <div id="bookContainer" class="container-fluid" style="overflow-y: auto; padding-top:22px; width:100%">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Cover</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Rating</th>
-                <th scope="col">
-                    <span class="dropdown">
-                        <button id="currencyDropdown" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="window.exchangeRates()">
-                            Price (USD)<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="currencyList">
-                        </ul>
-                    </span>
-                </th>
-                <th scope="col">Add to Cart</th>
-            </tr>
-            </thead>
-            <tbody>
+    <div id="bookContainer" class="container-fluid alignXS" style="overflow-y: auto; padding-top:22px; width:100%">
+            <div class="row d-sm-none bottomBorder">
+                <div class="col-xs-3 col-sm-2">Cover</div>
+                <div class="col-xs-3 col-sm-2">Title</div>
+                <div class="col-xs-3 col-sm-2">Author</div>
+                <div class="col-sm-2 d-sm-none">Rating</div>
+                <div class="col-sm-2 d-sm-none">
+                    @include('shared.currencyDropdown')
+                </div>
+                <div class="col-xs-3 col-sm-2">Add to Cart</div>
+            </div>
+
                 @foreach ($response as $book)
-                <tr>
-                    <td><a href="{{url('/book/' . $book->id)}}"><img style="max-height: 150px" src="{{$book->bookImgSrc}}"/></a></td>
-                    <td><a href="{{url('/book/' . $book->id)}}">{{$book->title}}</a></td>
-                    <td>{{$book->author}}</td>
-                    <td>5 Stars</td>
-                    <td class="price">{{$book->price}}</td>
-                    <td>
-                        <button type="button" class="btn btn-default">
+                <div class="row bottomBorder">
+                    <div class="col-sm-2 col-xs-12"><a href="{{url('/book/' . $book->id)}}"><img class="bookHeight" src="{{$book->bookImgSrc}}"/></a></div>
+                    <div class="col-sm-2 col-xs-12"><a href="{{url('/book/' . $book->id)}}">{{$book->title}}</a></div>
+                    <div class="col-sm-2 col-xs-12">{{$book->author}}</div>
+                    <div class="col-sm-2 d-sm-none">{{$book->averageRating or "N/A"}}</div>
+                    <div class="col-sm-2 col-xs-12 price">{{$book->price}}</div>
+                    <div class="col-sm-2 d-sm-none">
+                        <button type="button" class="btn btn-default" onclick="setQuantity(1)" data-toggle="modal" data-target="#addModal{{$book->id}}">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </button>
-                    </td>
-                </tr>
+                    </div>
+                </div>
+                <div class="modal fade" id="addModal{{$book->id}}" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Add <b>{{$book->title}}</b> to your cart.</h4>
+                            </div>
+                            <div class="modal-body">
+                                <label for="quantitySelect">How many would you like to add?</label>
+                                <input id="quantity{{$book->id}}" type="number" class="form-control" placeholder="80085" aria-label="Quantity">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                        onclick="addToCart({{$book->id}}, document.getElementById('{{"quantity" . $book->id}}').value, {{ Auth::user()->id }})">
+                                    Add To Cart
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
-            </tbody>
-        </table>
+        </div>
     </div>
 @endsection

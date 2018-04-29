@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Course;
 use App\Models\Instructor;
+use App\User;
 
 class InstructorTableSeeder extends Seeder
 {
@@ -29,14 +30,23 @@ class InstructorTableSeeder extends Seeder
             Course::where('name', '=', 'Beers of the World')->first()
         );
 
+        // Save the user model to the instructor
+        $instructor->user()->attach(
+            User::where('name', '=', 'Dan Krutz')->first()
+        );
+
     	$instructor = Instructor::create([
-    		'fname' => 'Jane',
-            'lname' => 'Doe'
-    	]);
+            'fname' => 'Sam',
+            'lname' => 'Malachowsky'
+        ]);     
 
     	$instructor->courses()->attach(
     	   Course::where('name', '=', 'SWEN-262')->first()
     	);
+
+        $instructor->user()->attach(
+            User::where('name', '=', 'Sam Malachowsky')->first()
+        );
 
     	$instructor = Instructor::create([
     		'fname' => 'Elon',
@@ -47,9 +57,17 @@ class InstructorTableSeeder extends Seeder
     		Course::where('name', '=', 'Rockets and Nerdom 201')->first()
     	);
 
-        Instructor::create([
-            'fname' => 'Sam',
-            'lname' => 'Malachowsky'
-        ]);    	
+        $instructor->user()->attach(
+            User::where('name', '=', 'Elon Musk')->first()
+        );        
+
+        $instructor = Instructor::create([
+            'fname' => 'Research',
+            'lname' => 'Grant'
+        ]);
+
+        $instructor->user()->attach(
+            User::where('name', '=', 'Research Grant')->first()
+        );
     }
 }

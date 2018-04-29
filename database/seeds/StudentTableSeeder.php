@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Book;
+use App\User;
 
 class StudentTableSeeder extends Seeder
 {
@@ -27,9 +28,15 @@ class StudentTableSeeder extends Seeder
     		Book::where('isbn', '=','0425245284')->first()
     	);
 
+        // Add course
     	$student->courses()->attach(
     		Course::where('name', '=', 'Web Engineering 344')->first()
     	);
+
+        // Hook up the user to it
+        $student->user()->attach(
+            User::where('name', '=', 'John Doe')->first()
+        );
 
     	$student = Student::create([
     		'fName' => 'Jane',
@@ -43,6 +50,11 @@ class StudentTableSeeder extends Seeder
 
         $student->books()->attach(
             Book::where('isbn', '=', '0425245284')->first()
+        );
+
+        // Hook up the user to it
+        $student->user()->attach(
+            User::where('name', '=', 'Jane Doe')->first()
         );
 
     	$student = Student::create([
@@ -67,10 +79,20 @@ class StudentTableSeeder extends Seeder
     		Course::where('name', '=', 'Beers of the World')->first()
     	);
 
-    	Student::create([
+        // Hook up the user to it
+        $student->user()->attach(
+            User::where('name', '=', 'Clark Kent')->first()
+        );
+
+    	$student = Student::create([
     		'fName' => 'Huge',
     		'lName' => 'Slacker',
             'account' => -100.0
     	]);
+
+        // Hook up the user to it
+        $student->user()->attach(
+            User::where('name', '=', 'Huge Slacker')->first()
+        );
     }
 }
