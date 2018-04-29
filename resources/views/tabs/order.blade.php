@@ -1,4 +1,5 @@
 
+
 <table id="courseList"class="table">
     <thead>
     <tr>
@@ -11,10 +12,10 @@
         <tr>
             <td>{{$book->title}}</td>
             <td>{{$book->author}}</td>            
-            <td><select class="quantity" autocomplete="off"></select></td>
+            <td><select class="quantity" id={{$book->id}} data-stock={{$book->in_stock}} autocomplete="off"></select></td>
         </tr>
         @endforeach
         </tbody>
     </form>
 </table>
-<button type="button" class="btn btn-primary" type="Submit" id="saveChanges" onclick="window.orderBooks()">Order</button>
+<button type="button" class="btn btn-primary" type="Submit" id="saveChanges" onclick="orderBooks()">Order</button>
