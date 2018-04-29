@@ -13,6 +13,6 @@ class Book extends Model
     	'isbn',
     	'isEnabled',
     	'bookImgSrc',
-        'inStock'
+        'in_stock'
     ];
 }

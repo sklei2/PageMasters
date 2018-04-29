@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->decimal('price', 13, 2);
             $table->boolean('isEnabled');
             $table->text('bookImgSrc');
+            $table->integer('in_stock');
             $table->timestamps();
         });
     }

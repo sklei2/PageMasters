@@ -2,7 +2,7 @@ function orderBooks(){
     var elements = document.getElementsByClassName("quantity");
 
     for(var i = 0; i<elements.length; i++) {
-        var url = "/api/books/"+elements[i].id;
+        var url = "api/books/"+elements[i].id;
         var newStock = parseInt(elements[i].getAttribute("data-stock")) +
             parseInt(elements[i].value);
         var body = {"in_stock" : parseInt(newStock)};
@@ -13,6 +13,9 @@ function orderBooks(){
             // who needs error handling
             success: function (res) {
                 console.log(res);
+            },
+            error: function(data) {
+                console.log(data);
             }
         });
     }
