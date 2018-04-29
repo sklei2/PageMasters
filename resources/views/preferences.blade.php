@@ -1,6 +1,6 @@
 @extends('shared.base')
 
-@section('title', '{{ $title }}')
+@section('title', 'Manage')
 
 @section('javascript')
 <script type="text/javascript" src="{{ asset('js/preferences.js') }}"></script>
@@ -8,9 +8,8 @@
 
 @section('content')
 <span id="userInfo">
-    <p>Name: Elvis</p>
-    <p>Department: CMPE</p>
-    <p>Year: 4</p>
+   <p> <strong>Name: </strong> {{Auth::user()->name}} </p>
+   <p> <strong>Email: </strong> {{Auth::user()->email}}</p>
 </span>
 <div class="position-ref full-height">
     <div class="content flex-center">

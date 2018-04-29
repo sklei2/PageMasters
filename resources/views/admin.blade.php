@@ -1,6 +1,6 @@
 @extends('shared.base')
 
-@section('title', '{{ $title }}')
+@section('title', 'Admin')
 
 @section('css')
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet" type="text/css">
