@@ -21,18 +21,24 @@
                 <li>
                     <a href="/cart">Cart</a>
                 </li>
+                @if(Auth::user()->isRole("admin"))
                 <li>
                     <a href="/admin">Book Management</a>
                 </li>
+                @endif
+                @if(Auth::user()->isRole("instructor") or Auth::user()->isRole("admin"))
                 <li>
                     <a href="/preferences#manageCourses" id="manageCourses" onclick="window.switchTabs(this.id)">Course Management</a>
                 </li>
+                @endif
                 <li>
                     <a href="/preferences#enrolledCourses" id="enrolledCourses" onclick="window.switchTabs(this.id)">Courses</a>
                 </li>
+                @if(Auth::user()->isRole("admin"))
                 <li>
                     <a href="/coverage">Coverage Report</a>
                 </li>
+                @endif
             </ul>
             
                 @if (Auth::guest())
