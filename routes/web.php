@@ -12,6 +12,7 @@
 */
 Route::get('/', 'Auth\\LoginController@GetLoginPage');
 Route::get('logout', 'Auth\\LoginController@logout');
+Route::get('signup', 'Auth\\RegisterController@GetRegisterPage');
 
 // Individual Book Page Route
 Route::get('/book/{id}', 'BookController@show');

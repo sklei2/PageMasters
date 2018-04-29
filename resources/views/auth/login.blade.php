@@ -69,6 +69,11 @@
                                         </button>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <a href="signup">Don't have an account? Sign up! </a>    
+                                    </div>                                    
+                                </div>
                             </form>
                         </div>
                     </div>
