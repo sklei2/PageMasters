@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'Auth\\LoginController@GetLoginPage');
+Route::get('loginwithgoogle', 'Auth\\LoginController@loginWithGoogle');
 Route::get('logout', 'Auth\\LoginController@logout');
 Route::get('signup', 'Auth\\RegisterController@GetRegisterPage');
 
