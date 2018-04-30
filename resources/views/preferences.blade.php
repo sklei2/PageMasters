@@ -1,17 +1,12 @@
 @extends('shared.base')
 
-@section('title', '{{ $title }}')
+@section('title', 'Manage')
 
 @section('javascript')
 <script type="text/javascript" src="{{ asset('js/preferences.js') }}"></script>
 @stop
 
 @section('content')
-<span id="userInfo">
-    <p>Name: Elvis</p>
-    <p>Department: CMPE</p>
-    <p>Year: 4</p>
-</span>
 <div class="position-ref full-height">
     <div class="content flex-center">
         <div id="tabs">

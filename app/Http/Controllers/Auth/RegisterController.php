@@ -91,6 +91,7 @@ class RegisterController extends Controller
         ]);
 
         $student->user()->attach($user);
+        $user->roleInfo()->attach($student);
 
         return $user;
     }
