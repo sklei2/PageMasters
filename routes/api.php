@@ -150,7 +150,7 @@ Route::get(
 );
 
 Route::put(
-    'students/{id}/books/update',
+    'students/{id}/checkout',
     'ApiControllers\StudentController@updateBooks'
 );
 

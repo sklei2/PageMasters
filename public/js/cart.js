@@ -53,7 +53,7 @@ function purchaseCart(ccNumber, UID, SID, books, amount, booksQuantity) {
         for(var i=0; i<books.length; i++) {
             bookNums[i] = books[i].id;
         }
-        var url = '/api/students/'+SID+'/books/update';
+        var url = '/api/students/'+SID+'/checkout';
         var body = {
             'books': bookNums,
             'amount': amount,
