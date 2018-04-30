@@ -9,12 +9,12 @@ function addCourse() {
     });
 };
 
-function addToAccount(value, userId) {
+function addToAccount(value, studentId) {
     var currentVal = parseFloat(document.getElementById("currentBalance").innerText.substring(1));
     var newValue = currentVal + value;
 
     $.ajax({
-        url: '/api/students/update/' + userId,
+        url: '/api/students/update/' + studentId,
         data: {'account': newValue},
         type: 'PUT',
         success: function(data) {
