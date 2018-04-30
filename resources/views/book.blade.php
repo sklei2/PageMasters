@@ -25,7 +25,7 @@
                     @include('shared.currencyDropdown')
                     <span class="price" style="font-size: 18px">{{ $price }}</span><br>
                 </div>
-                @if($isEnabled)
+                @if($isEnabled and $in_stock > 0)
                 <button type="button" style="float:right; margin-top: 10px;" class="btn btn-primary" data-toggle="modal"
                         data-target="#addModal">Add To Cart
                 </button>

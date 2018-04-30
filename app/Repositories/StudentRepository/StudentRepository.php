@@ -19,8 +19,10 @@ class StudentRepository extends BaseRepository implements StudentRepositoryInter
             $index = 0;
             foreach($attributes['books'] as $book) {
                 $user->books()->attach(Book::find($book));
-                Book::find($book)->in_stock = Book::find($book)->in_stock - $attributes['quantity'][$index];
-                Book::find($book)->save();
+                error_log($attributes['quantity'][$index]);
+                $book = Book::find($book);
+                $book->in_stock = $book->in_stock - $attributes['quantity'][$index];
+                $book->save();
                 $index++;
             }
             return $user->books;
