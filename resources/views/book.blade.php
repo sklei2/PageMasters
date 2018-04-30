@@ -25,9 +25,15 @@
                     @include('shared.currencyDropdown')
                     <span class="price" style="font-size: 18px">{{ $price }}</span><br>
                 </div>
+                @if($isEnabled)
                 <button type="button" style="float:right; margin-top: 10px;" class="btn btn-primary" data-toggle="modal"
                         data-target="#addModal">Add To Cart
                 </button>
+                @else
+                <button type="button" style="float:right; margin-top: 10px;" class="btn btn-primary" disabled>
+                    Add To Cart
+                </button>
+                @endif
             </div>
         </div>
         <div class="row" style="height:85%">
