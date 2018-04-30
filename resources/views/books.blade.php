@@ -25,7 +25,7 @@
                 <div class="row bottomBorder">
                     <div class="col-sm-2 col-xs-12">
                         <a href="{{url('/book/' . $book->id)}}">
-                            @if ($book->isEnabled)
+                            @if ($book->isEnabled and $book->in_stock > 0)
                             <img class="bookHeight" src="{{$book->bookImgSrc}}"/>
                             @else
                             <img class="bookHeight" src="{{$book->bookImgSrc}}" style="opacity: 0.5"/>
@@ -37,7 +37,7 @@
                     <div class="col-sm-2 d-sm-none">{{$book->averageRating or "N/A"}}</div>
                     <div class="col-sm-2 col-xs-12 price">{{$book->price}}</div>
                     <div class="col-sm-2 d-sm-none">
-                        @if ($book->isEnabled)
+                        @if ($book->isEnabled and $book->in_stock > 0)
                         <button type="button" class="btn btn-default" onclick="setQuantity(1)" data-toggle="modal" data-target="#addModal{{$book->id}}">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </button>
