@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
+use App\Models\Course;
+use App\Models\Book;
 
 class PreferencesController extends Controller
 {
@@ -33,5 +35,16 @@ class PreferencesController extends Controller
         } else {
             return redirect('login');
         }        
+    }
+
+    public function addBookToCourse( Request $request ) {
+        // dd($request);
+        $bid = (int) $request->input('book_id');
+        $cname = (int) $request->input('course_name');
+        $course = Course::where('name', '=', $cname)->first();
+        $course->books()->attach(
+    		Book::where('id', '=', $bid)->first()
+        );
+        dd($course->books()->get());
     }
 }

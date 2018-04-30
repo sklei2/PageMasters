@@ -21,7 +21,7 @@ Route::get('/book/{id}', 'BookController@show');
 Auth::routes();
 
 Route::get('/preferences', 'PreferencesController@show');
-
+Route::get('/addbooktocourse', 'PreferencesController@addBookToCourse');
 Route::get('/admin', 'AdminController@show');
 
 Route::get('/books', 'BookController@getAll');
