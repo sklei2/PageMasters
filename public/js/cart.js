@@ -47,9 +47,31 @@ function valid_credit_card(value) {
     return (nCheck % 10) == 0;
 }
 
-function purchaseCart(ccNumber, SID, books) {
+function purchaseCart(ccNumber, SID, books, amount) {
     if(valid_credit_card(ccNumber)) {
-        var url = '/api/carts/'+SID+'/delete';
+        var bookNums = [];
+        for(var i=0; i<books.length; i++) {
+            bookNums[i] = books[i].id;
+        }
+        var url = '/api/students/'+SID+'/books/update';
+        var body = {
+            'books': bookNums,
+            'amount': amount
+        };
+        $.ajax({
+            url: url,
+            type: 'PUT',
+            data: body,
+            success: function(response) {
+                $('#purchaseModal').modal('hide');
+                console.log(response);
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
+
+        url = '/api/carts/'+SID+'/delete';
         $.ajax({
             url: url,
             type:'DELETE'

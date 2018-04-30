@@ -55,6 +55,13 @@ class StudentController extends Controller
         return response($code);
     }
 
+    public function updateBooks(Request $request, $id) {
+        $success = $this->student->updateBooks($id, $request->all());
+        $otherSuccess = $this->student->subtractFunds($id, $request->all());
+        $code = $success && $otherSuccess ? 200 : 400;
+        return response($otherSuccess);
+    }
+
     public function delete($id) {
     	$success = $this->student->delete($id);
         $code = $success ? 200 : 404;

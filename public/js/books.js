@@ -35,7 +35,7 @@ function postReview(SID, bookID, rating, textReview) {
         'book_id': bookID,
         'rating': realRating,
         'textReview': textReview
-    }
+    };
 
     var url = "/api/reviews/create";
     $.ajax({

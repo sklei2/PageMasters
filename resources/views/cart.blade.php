@@ -94,7 +94,7 @@
                         <input type="text" id="ccNumber">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" onclick="purchaseCart(document.getElementById('ccNumber').value, {{ Auth::user()->id }}, {{json_encode($response)}})">Purchase Books</button>
+                        <button type="button" class="btn btn-default" onclick="purchaseCart(document.getElementById('ccNumber').value, {{ Auth::user()->id }}, {{json_encode($response)}}, {{$totalCost}})">Purchase Books</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
