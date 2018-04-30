@@ -14,6 +14,7 @@
 <div id="bookPage">
     <div id="bookContainer" class="container-fluid" style="overflow-y: auto; padding-top:22px; width:100%">
         <table class="table">
+            @if($response)
             <thead>
             <tr>
                 <th scope="col">Cover</th>
@@ -25,7 +26,7 @@
             </tr>
             </thead>
             <tbody>
-            @if($response)
+
                 @foreach ($response as $book)
                     <tr>
                         <td><img style="max-height: 150px" src="{{$book->bookImgSrc}}"/></td>
@@ -48,7 +49,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Modal Header</h4>
+                                    <h4 class="modal-title">Remove {{$book->title}} from your cart.</h4>
                                 </div>
                                 <div class="modal-body">
                                     <label for="quantitySelect">How many would you like to remove from your cart?</label>
@@ -59,7 +60,7 @@
                                     </select>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" onclick="removeFromCart({{$book->id}}, parseInt(removalQuantity), {{ Auth::user()->id }})">Remove From Cart</button>
+                                    <button type="button" data-dismiss="modal" class="btn btn-default" onclick="removeFromCart({{$book->id}}, parseInt(removalQuantity), {{ Auth::user()->id }})">Remove From Cart</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
@@ -74,9 +75,30 @@
             @endif
             </tbody>
         </table>
-        <div>
-            <div style="float:left">Total: ${{$totalCost}}</div>
-            <button type="button" class="btn btn-default" style="float:right">Purchase</button>
+        @if($response)
+            <div>
+                <div style="float:left">Total: ${{$totalCost}}</div>
+                <button type="button" class="btn btn-default" style="float:right" data-toggle="modal" data-target="#purchaseModal">Purchase</button>
+            </div>
+        @endif
+        <div class="modal fade" id="purchaseModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Purchase Books</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="ccNumber">Please enter your Credit Card Number</label>
+                        <input type="text" id="ccNumber">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" onclick="purchaseCart(document.getElementById('ccNumber').value, {{ Auth::user()->id }}, {{json_encode($response)}}, {{$totalCost}})">Purchase Books</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

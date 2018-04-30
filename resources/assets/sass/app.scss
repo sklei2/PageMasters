@@ -57,11 +57,22 @@ body {
     margin-bottom: 10px;
     padding-bottom: 5px;
   }
+  #mainNavbar {
+    overflow-y:auto;
+  }
+
+  .bookScroll {
+    overflow-y: auto;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .bookHeight {
     max-height: 150px;
+  }
+
+  .bookReviews {
+    overflow-y: auto;
   }
 
   .bottomBorder {
@@ -71,10 +82,24 @@ body {
     margin-bottom: 10px;
     padding-bottom: 10px;
   }
+  .bookFlex {
+    display: flex;
+  }
 }
 
 #currencyList {
   max-height: 300px;
   overflow-y: scroll;
   margin-top: 8px;
+}
+
+#individualBookPage {
+  height:100%;
+}
+
+#bookPageRightHeader {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  align-self: flex-end;
 }

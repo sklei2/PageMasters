@@ -19,4 +19,19 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
 	public function getByStudentId($id) {
 		return $this->model->where('student_id', '=', $id)->get();
 	}
+    public function create(array $attributes) {
+	    $id = $attributes['student_id'];
+	    $reviews = $this->getByStudentId($id);
+	    $wasFound = false;
+	    foreach($reviews as $review) {
+	        if ($review->book_id == $attributes['book_id']) {
+	            $wasFound = true;
+	            break;
+            }
+        }
+        if (!$wasFound) {
+            return $this->model->create($attributes);
+        }
+        return null;
+    }
 }

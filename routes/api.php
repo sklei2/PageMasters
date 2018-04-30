@@ -150,6 +150,11 @@ Route::get(
 );
 
 Route::put(
+    'students/{id}/books/update',
+    'ApiControllers\StudentController@updateBooks'
+);
+
+Route::put(
     'students/update/{id}',
     'ApiControllers\StudentController@update'
 );

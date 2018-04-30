@@ -21,7 +21,7 @@ Route::get('/book/{id}', 'BookController@show');
 Auth::routes();
 
 Route::get('/preferences', 'PreferencesController@show');
-
+Route::get('/addbooktocourse', 'PreferencesController@addBookToCourse');
 Route::get('/admin', 'AdminController@show');
 
 Route::get('/books', 'BookController@getAll');
@@ -29,7 +29,7 @@ Route::get('/books', 'BookController@getAll');
 Route::get('/cart', 'CartController@getCart');
 
 Route::get('/coverage', function () {
-    return Redirect::to('report/report/index.html');
+    return Redirect::to('report/report/Http/Controllers/ApiControllers/index.html');
 });
 
 
