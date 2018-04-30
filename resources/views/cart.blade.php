@@ -4,6 +4,8 @@
 
 @php
     $totalCost = 0;
+    $bookQuantity = [];
+    $index = 0;
 @endphp
 
 @section('javascript')
@@ -68,6 +70,8 @@
                     </div>
                     @php
                     $totalCost += $book->book_quantity * $book->price;
+                    $bookQuantity[$index] = $book->book_quantity;
+                    $index++;
                     @endphp
                 @endforeach
             @else
@@ -94,7 +98,7 @@
                         <input type="text" id="ccNumber">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" onclick="purchaseCart(document.getElementById('ccNumber').value, {{ Auth::user()->id }}, {{json_encode($response)}}, {{$totalCost}})">Purchase Books</button>
+                        <button type="button" class="btn btn-default" onclick="purchaseCart(document.getElementById('ccNumber').value, {{Auth::user()->id}}, {{ Auth::user()->roleInfo->first()->id }}, {{json_encode($response)}}, {{$totalCost}}, {{json_encode($bookQuantity)}})">Purchase Books</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

@@ -59,7 +59,7 @@ class StudentController extends Controller
         $success = $this->student->updateBooks($id, $request->all());
         $otherSuccess = $this->student->subtractFunds($id, $request->all());
         $code = $success && $otherSuccess ? 200 : 400;
-        return response($otherSuccess);
+        return response($success);
     }
 
     public function delete($id) {

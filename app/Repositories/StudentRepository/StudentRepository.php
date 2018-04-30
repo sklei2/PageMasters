@@ -14,17 +14,21 @@ class StudentRepository extends BaseRepository implements StudentRepositoryInter
 	}
 
 	public function updateBooks($id, array $attributes) {
-        $user = $this->model->find(1);
+        $user = $this->model->find($id);
         if ($user != null) {
+            $index = 0;
             foreach($attributes['books'] as $book) {
                 $user->books()->attach(Book::find($book));
+                Book::find($book)->in_stock = Book::find($book)->in_stock - $attributes['quantity'][$index];
+                Book::find($book)->save();
+                $index++;
             }
             return $user->books;
         }
     }
 
     public function subtractFunds($id, array $attributes){
-	    $user = $this->model->find(1);
+	    $user = $this->model->find($id);
 	    if ($user != null) {
 	        $user->account = $user->account - $attributes['amount'];
         }

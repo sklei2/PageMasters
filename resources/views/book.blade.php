@@ -86,11 +86,11 @@
                     </div>
                     <div class="modal-body">
                         <label for="quantitySelect">How many would you like to add?</label>
-                        <input id="quantity" type="number" class="form-control" placeholder="80085"
+                        <input id="quantity" type="number" class="form-control" placeholder="80085" value="1"
                                aria-label="Quantity">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default"
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
                                 onclick="addToCart({{$id}}, document.getElementById('quantity').value, {{ Auth::user()->id }})">
                             Add To Cart
                         </button>

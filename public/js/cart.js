@@ -47,7 +47,7 @@ function valid_credit_card(value) {
     return (nCheck % 10) == 0;
 }
 
-function purchaseCart(ccNumber, SID, books, amount) {
+function purchaseCart(ccNumber, UID, SID, books, amount, booksQuantity) {
     if(valid_credit_card(ccNumber)) {
         var bookNums = [];
         for(var i=0; i<books.length; i++) {
@@ -56,7 +56,8 @@ function purchaseCart(ccNumber, SID, books, amount) {
         var url = '/api/students/'+SID+'/books/update';
         var body = {
             'books': bookNums,
-            'amount': amount
+            'amount': amount,
+            'quantity': booksQuantity
         };
         $.ajax({
             url: url,
@@ -71,10 +72,14 @@ function purchaseCart(ccNumber, SID, books, amount) {
             }
         });
 
-        url = '/api/carts/'+SID+'/delete';
+        url = '/api/carts/'+UID+'/delete';
         $.ajax({
             url: url,
-            type:'DELETE'
+            type:'DELETE',
+            success: function(response) {
+                alert("Books purchased!");
+                window.location = '/';
+            }
         });
 
     } else {
